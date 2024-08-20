@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\InsUpDelMasterController;
+use App\Http\Controllers\Pos\InsUpDelPosController;
 use App\Http\Controllers\QueryPosController;
 use App\Http\Controllers\QueryMasterController;
 use Illuminate\Http\Request;
@@ -22,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/QueryMaster', [QueryMasterController::class, 'run']);
 Route::post('/QueryPos', [QueryPosController::class, 'run']);
+Route::post('/InsUpDelMaster', [InsUpDelMasterController::class, 'run']);
+Route::post('/InsUpDelPos', [InsUpDelPosController::class, 'run']);
