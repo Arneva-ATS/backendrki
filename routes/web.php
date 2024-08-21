@@ -19,4 +19,3 @@ use Illuminate\Support\Facades\Route;
 //     Route::get('visi-misi', function () {
 //         return view('pages.tentang-kami.visi-misi');
 //     })->name('visi-misi');
-Route::post('/QueryMaster', [QueryMasterController::class, 'run']);

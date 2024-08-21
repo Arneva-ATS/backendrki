@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\InsUpDelKoperasiController;
 use App\Http\Controllers\InsUpDelMasterController;
-use App\Http\Controllers\Pos\InsUpDelPosController;
+use App\Http\Controllers\InsUpDelPosController;
+use App\Http\Controllers\QueryKoperasiController;
 use App\Http\Controllers\QueryPosController;
 use App\Http\Controllers\QueryMasterController;
 use Illuminate\Http\Request;
@@ -26,3 +28,5 @@ Route::post('/QueryMaster', [QueryMasterController::class, 'run']);
 Route::post('/QueryPos', [QueryPosController::class, 'run']);
 Route::post('/InsUpDelMaster', [InsUpDelMasterController::class, 'run']);
 Route::post('/InsUpDelPos', [InsUpDelPosController::class, 'run']);
+Route::post('/QueryKoperasi', [QueryKoperasiController::class, 'run']);
+Route::post('/InsUpDelKoperasi', [InsUpDelKoperasiController::class, 'run']);
