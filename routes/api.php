@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/master/QueryMaster', [QueryMasterController::class, 'run']);
-Route::post('/post/QueryPos', [QueryPosController::class, 'run']);
+Route::post('/pos/QueryPos', [QueryPosController::class, 'run']);
 Route::post('/master/InsUpDelMaster', [InsUpDelMasterController::class, 'run']);
 Route::post('/pos/InsUpDelPos', [InsUpDelPosController::class, 'run']);
 Route::post('/koperasi/QueryKoperasi', [QueryKoperasiController::class, 'run']);
