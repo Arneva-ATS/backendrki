@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FelloController;
 use App\Http\Controllers\InsUpDelKoperasiController;
 use App\Http\Controllers\InsUpDelMasterController;
 use App\Http\Controllers\InsUpDelPosController;
@@ -30,3 +31,4 @@ Route::post('/master/InsUpDelMaster', [InsUpDelMasterController::class, 'run']);
 Route::post('/pos/InsUpDelPos', [InsUpDelPosController::class, 'run']);
 Route::post('/koperasi/QueryKoperasi', [QueryKoperasiController::class, 'run']);
 Route::post('/koperasi/InsUpDelKoperasi', [InsUpDelKoperasiController::class, 'run']);
+Route::post('/fello', [FelloController::class, 'run']);
