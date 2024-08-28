@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Fello\FelloController as FelloFelloController;
-use App\Http\Controllers\FelloController;
 use App\Http\Controllers\InsUpDelKoperasiController;
 use App\Http\Controllers\InsUpDelMasterController;
 use App\Http\Controllers\InsUpDelPosController;
