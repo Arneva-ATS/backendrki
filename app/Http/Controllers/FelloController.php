@@ -1,20 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Fello;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class FelloController extends Controller
 {
-    //
     public function run(Request $request)
     {
-
-        //Trial Host
         $host = "http://35.187.249.186/";
-
-
 
         $cmd = $request->get("cmd");
         if ($cmd == "selMasterFello") {
@@ -67,12 +64,11 @@ class FelloController extends Controller
     {
         $tipe = $_POST["tipe"];
         $kode_layanan = $_POST["kode_layanan"];
-        $sql = "
-        SELECT * FROM mst_fello_multi_biller
+        $sql = " 
+        SELECT * FROM mst_fello_multi_biller 
         where tipe like '%" . $tipe . "%' and kode_layanan like '%" . $kode_layanan . "%'
         ORDER BY tipe,kode_layanan,kode_biller,product_id
         ";
-
         $results = DB::select($sql);
         return json_encode($results);
     }
@@ -81,16 +77,14 @@ class FelloController extends Controller
     {
         $kop_id = $_POST["kop_id"];
         $traceNumber = $_POST["traceNumber"];
-        $sql = "
-        SELECT a.*,b.sts,b.response
-        FROM
+        $sql = " 
+        SELECT a.*,b.sts,b.response 
+        FROM   
         tr_fello_wallet a
-        JOIN tr_log_fello_wallet b ON a.traceNumber=b.traceNumber
+        JOIN tr_log_fello_wallet b ON a.traceNumber=b.traceNumber 
         WHERE  b.sts='Transaction completed' AND a.traceNumber='" . $traceNumber . "' and a.kop_id='" . $kop_id . "'
         ";
-        //SELECT * FROM   tr_log_fello_wallet where kop_id='" . $kop_id . "' and traceNumber='" . $traceNumber . "' and sts='Transaction completed';
         $results = DB::select($sql);
-
         return json_encode($results);
     }
 
@@ -100,13 +94,12 @@ class FelloController extends Controller
         $kop_id = $_POST["kop_id"];
         $tgl_awal = $_POST["tgl_awal"];
         $tgl_akhir = $_POST["tgl_akhir"];
-        //$traceNumber = $_POST["traceNumber"];
-        $sql = "
-        SELECT a.*,c.nama_koperasi,b.sts,b.response
-        FROM
+        $sql = " 
+        SELECT a.*,c.nama_koperasi,b.sts,b.response 
+        FROM   
         tr_fello_wallet a
-        JOIN tr_log_fello_wallet b ON a.traceNumber=b.traceNumber
-        JOIN mst_koperasi c ON a.kop_id=c.idx
+        JOIN tr_log_fello_wallet b ON a.traceNumber=b.traceNumber 
+        JOIN mst_koperasi c ON a.kop_id=c.idx 
         WHERE  a.kop_id='" . $kop_id . "'  and date(tgl_tran)  BETWEEN ? AND ?     order by tgl_tran desc
         ";
         $results = DB::select($sql, [$tgl_awal, $tgl_akhir]);
@@ -117,46 +110,38 @@ class FelloController extends Controller
     {
         $kop_id = $_POST["kop_id"];
         $custId = $_POST["custId"];
-        $sql = "
+        $sql = " 
         SELECT * FROM tr_fello_wallet_log_binding  WHERE  sts='Transaction completed' AND noAccount='" . $custId . "' ORDER BY dateIns desc limit 1;
         ";
         $results = DB::select($sql);
-
         return json_encode($results);
     }
     public function selWalletFelloCekBinding(Request $request, $cmd)
     {
         $kop_id = $_POST["kop_id"];
         $userId = $_POST["userId"];
-
-
-        $sql = "
+        $sql = " 
         SELECT a.*,b.*
-        FROM mst_user a
+        FROM mst_user a 
         JOIN mst_koperasi b ON a.no_koperasi=b.idx
         where a.userId='" . $userId . "' and b.idx='" . $kop_id . "'
         ";
-
         $res = DB::select($sql);
         $noAccount = $res[0]->noAccount;
-
-        $sql = "
+        $sql = " 
         SELECT * FROM tr_fello_wallet_log_binding  WHERE  sts='Transaction completed' AND noAccount='" . $noAccount . "' ORDER BY dateIns desc limit 1;
         ";
         $results = DB::select($sql);
         return json_encode($results);
     }
 
-
-
     public function felloSignatureAuth(Request $request, $cmd, $host)
     {
         $kop_id = $_POST["kop_id"];
         $userId = $_POST["userId"];
-
-        $sql = "
+        $sql = " 
         SELECT a.*,b.*
-        FROM mst_user a
+        FROM mst_user a 
         JOIN mst_koperasi b ON a.no_koperasi=b.idx
         where a.userId='" . $userId . "' and b.idx='" . $kop_id . "'
         ";
@@ -189,14 +174,12 @@ class FelloController extends Controller
     public function felloBalanceInquery(Request $request, $cmd, $host)
     {
         $xExternalId = $_POST["xExternalId"];
-        //$token = $_POST["token"];
-
         $kop_id = $_POST["kop_id"];
         $userId = $_POST["userId"];
 
-        $sql = "
+        $sql = " 
         SELECT a.*,b.*
-        FROM mst_user a
+        FROM mst_user a 
         JOIN mst_koperasi b ON a.no_koperasi=b.idx
         where a.userId='" . $userId . "' and b.idx='" . $kop_id . "'
         ";
@@ -237,9 +220,9 @@ class FelloController extends Controller
         $kop_id = $_POST["kop_id"];
 
 
-        $sql = "
+        $sql = " 
         SELECT a.*,b.*
-        FROM mst_user a
+        FROM mst_user a 
         JOIN mst_koperasi b ON a.no_koperasi=b.idx
         where a.userId='" . $userId . "' and b.idx='" . $kop_id . "'
         ";
@@ -274,13 +257,12 @@ class FelloController extends Controller
         $xExternalId = $_POST["xExternalId"];
         $token = $_POST["token"];
         $amount = $_POST["amount"];
-
         $kop_id = $_POST["kop_id"];
         $userId = $_POST["userId"];
 
-        $sql = "
+        $sql = " 
         SELECT a.*,b.*
-        FROM mst_user a
+        FROM mst_user a 
         JOIN mst_koperasi b ON a.no_koperasi=b.idx
         where a.userId='" . $userId . "' and b.idx='" . $kop_id . "'
         ";
@@ -321,22 +303,22 @@ class FelloController extends Controller
         $act = $_POST["act"];
 
         $mti_MessageTypeIdentification = $_POST["mti_MessageTypeIdentification"];
-        $bit2_PrimaryAccountNumber = $_POST["bit2_PrimaryAccountNumber"];
-        $bit3_ProcessingCode = $_POST["bit3_ProcessingCode"];
-        $bit4_TransactionAmount = $_POST["bit4_TransactionAmount"];
-        $bit7_TransmissionDateTime = $_POST["bit7_TransmissionDateTime"];
+        $bit2_PrimaryAccountNumber = $_POST["bit2_PrimaryAccountNumber"]; 
+        $bit3_ProcessingCode = $_POST["bit3_ProcessingCode"]; 
+        $bit4_TransactionAmount = $_POST["bit4_TransactionAmount"]; 
+        $bit7_TransmissionDateTime = $_POST["bit7_TransmissionDateTime"]; 
         $bit11_STAN = $_POST["bit11_STAN"];
         $bit12_LocalTransactionTime = $_POST["bit12_LocalTransactionTime"];
         $bit13_LocalTransactionDate = $_POST["bit13_LocalTransactionDate"];
-        $bit15_SettlementDate = $_POST["bit15_SettlementDate"];
+        $bit15_SettlementDate = $_POST["bit15_SettlementDate"]; 
         $bit18_MerchantType = "6021";
-        $bit32_AcquiringInstitutionIdentificationCode = "008";
-        $bit37_RetrievalReferenceNumber = $_POST["bit37_RetrievalReferenceNumber"];
+        $bit32_AcquiringInstitutionIdentificationCode = "008"; 
+        $bit37_RetrievalReferenceNumber = $_POST["bit37_RetrievalReferenceNumber"]; 
         //$bit39_ResponseCode=$_POST["bit39_ResponseCode"];
-        $bit41_TerminalID = "DEVATS01";
+        $bit41_TerminalID = "DEVATS01"; 
         $bit42_AcceptorIdentification = "200900100800000";
-        $bit48_AdditionalDataPrivate = $_POST["bit48_AdditionalDataPrivate"];
-        $bit49_TransactionCurrencyCode = $_POST["bit49_TransactionCurrencyCode"];
+        $bit48_AdditionalDataPrivate = $_POST["bit48_AdditionalDataPrivate"]; 
+        $bit49_TransactionCurrencyCode = $_POST["bit49_TransactionCurrencyCode"]; 
         $bit63_DataLoket = $_POST["bit63_DataLoket"];
 
         $body = '';
@@ -370,8 +352,6 @@ class FelloController extends Controller
                     CURLOPT_POSTFIELDS => $body,
                     CURLOPT_RETURNTRANSFER => 1,
                     CURLOPT_CUSTOMREQUEST => 'POST',
-
-
                 )
             );
             $response = curl_exec($curl);
@@ -424,21 +404,21 @@ class FelloController extends Controller
                 "bit49" =>  $bit49_TransactionCurrencyCode,
                 "bit63" => $bit63_DataLoket
             );
-            ///var_dump($body);
+            
 
-            $sql = " insert into tr_ppob_master (ppob_id,	kop_id,	no_anggota,	productCode,	nominal,	price,	serviceFee,	requestId,	account,
-            transactionId,	time_,	amount,	refId,	currency,	ppn,	discount,	real_amount,	dibayar,
-            kembalian,	total_item,	tipe_bayar,	ket,	sts,apiRequest,	apiProvider,	apiStsProvider,	appYn,	verify,	userVerify,	dateVerify,
-            userIns,	dateIns,	dateServer )
+            $sql = " insert into tr_ppob_master (ppob_id,	kop_id,	no_anggota,	productCode,	nominal,	price,	serviceFee,	requestId,	account,	
+            transactionId,	time_,	amount,	refId,	currency,	ppn,	discount,	real_amount,	dibayar,	
+            kembalian,	total_item,	tipe_bayar,	ket,	sts,apiRequest,	apiProvider,	apiStsProvider,	appYn,	verify,	userVerify,	dateVerify,	
+            userIns,	dateIns,	dateServer ) 
             values (
-            '" . $ppob_id . "',	'" . $kop_id . "',	'" . $no_anggota . "',	'" . $productCode . "',	0,	'" . $amount . "',	0,	'',	'" . $nomorTran . "',
-            '" . $transactionId . "',	'',	'" . $amount . "',	'',	'',	0,	0,	'" . $real_amount . "',	'" . $dibayar . "',
-            '" . $kembalian . "',	'" . $total_item . "',	'" . $tipe . "',	'',	'','" . str_replace("'", "`", json_encode($body)) . "',	'FELLO','OPEN',	'Y',	'N',	'',	null,
+            '" . $ppob_id . "',	'" . $kop_id . "',	'" . $no_anggota . "',	'" . $productCode . "',	0,	'" . $amount . "',	0,	'',	'" . $nomorTran . "',	
+            '" . $transactionId . "',	'',	'" . $amount . "',	'',	'',	0,	0,	'" . $real_amount . "',	'" . $dibayar . "',	
+            '" . $kembalian . "',	'" . $total_item . "',	'" . $tipe . "',	'',	'','" . str_replace("'", "`", json_encode($body)) . "',	'FELLO','OPEN',	'Y',	'N',	'',	null,	
             '" . $userIns . "',	now(),	now()
             );            ";
             DB::insert($sql);
 
-            //echo json_encode($body);
+           
             $curl = curl_init();
             curl_setopt_array(
                 $curl,
@@ -450,13 +430,24 @@ class FelloController extends Controller
                     CURLOPT_CUSTOMREQUEST => 'POST',
                 )
             );
-            $response = curl_exec($curl);
+            $response = curl_exec($curl);  
             curl_close($curl);
             $res = json_decode($response, true);
             $bit39 = $res["bit39"];
 
-
-            return $bit39;
+            if ($bit39 == "00") {
+                $sql = " update  tr_ppob_master set  apiStsProvider='SUCCESS' where ppob_id ='" . $ppob_id . "' ";
+                DB::update($sql);
+                $params_key = implode(";", array_keys($param));
+                $params_value = implode(";", $param);
+                $sql = " 
+                    INSERT INTO tr_ppob_detail VALUES ('" . $ppob_id . "','" . $productCode . "','" . $no_anggota . "',
+                    '" . $kop_id . "','" . $account . "','" . str_replace("'", "`", $params_key)  . "','" . str_replace("'", "`", $params_value) . "','" . $userIns . "',now(),
+                    now()); 
+                    ";
+                DB::insert($sql);
+            }
+            return $response;
         }
     }
 
@@ -468,19 +459,19 @@ class FelloController extends Controller
         $bit2_PrimaryAccountNumber = $_POST["bit2_PrimaryAccountNumber"];
         $bit3_ProcessingCode = $_POST["bit3_ProcessingCode"];
         $bit4_TransactionAmount = $_POST["bit4_TransactionAmount"];
-        $bit7_TransmissionDateTime = date('mdhis');
-        $bit11_STAN = rand('000000', '999999');
-        $bit12_LocalTransactionTime = date('his');
-        $bit13_LocalTransactionDate = date('md');
-        $bit15_SettlementDate = date('m') . str_pad(date('d') + 1, 2, "0", STR_PAD_LEFT);
+        $bit7_TransmissionDateTime = date('mdhis'); 
+        $bit11_STAN = rand('000000', '999999'); 
+        $bit12_LocalTransactionTime = date('his'); 
+        $bit13_LocalTransactionDate = date('md'); 
+        $bit15_SettlementDate = date('m') . str_pad(date('d') + 1, 2, "0", STR_PAD_LEFT); 
         $bit18_MerchantType = "6021";
         $bit32_AcquiringInstitutionIdentificationCode = "008";
-        $bit37_RetrievalReferenceNumber = "000000114415";
+        $bit37_RetrievalReferenceNumber = "000000114415"; 
         //$bit39_ResponseCode=$_POST["bit39_ResponseCode"];
         $bit41_TerminalID = "DEVATS01";
         $bit42_AcceptorIdentification = "200900100800000";
         $bit48_AdditionalDataPrivate = $_POST["bit48_AdditionalDataPrivate"];
-        $bit49_TransactionCurrencyCode = '360';
+        $bit49_TransactionCurrencyCode = '360'; 
         $bit63_DataLoket = $_POST["bit63_DataLoket"];
 
 
@@ -504,7 +495,6 @@ class FelloController extends Controller
         $ket = $_POST["ket"];
         $nowe = $_POST["nowe"];
         $transactionId = $_POST["transactionId"];
-        //$param = $_POST["param"];
 
         $body = array(
             "mti" =>  $mti_MessageTypeIdentification,
@@ -525,6 +515,17 @@ class FelloController extends Controller
             "bit49" => $bit49_TransactionCurrencyCode,
         );
 
+        $sql = " insert into tr_ppob_master (ppob_id,	kop_id,	no_anggota,	productCode,	nominal,	price,	serviceFee,	requestId,	account,	
+        transactionId,	time_,	amount,	refId,	currency,	ppn,	discount,	real_amount,	dibayar,	
+        kembalian,	total_item,	tipe_bayar,	ket,	sts,apiRequest,	apiProvider,	apiStsProvider,	appYn,	verify,	userVerify,	dateVerify,	
+        userIns,	dateIns,	dateServer ) 
+        values (
+        '" . $ppob_id . "',	'" . $kop_id . "',	'" . $no_anggota . "',	'" . $productCode . "',	0,	'" . $amount . "',	0,	'',	'" . $account . "',	
+        '" . $transactionId . "',	'',	'" . $amount . "',	'',	'',	0,	0,	'" . $real_amount . "',	'" . $dibayar . "',	
+        '" . $kembalian . "',	'" . $total_item . "',	'" . $tipe . "',	'" . $ket . "',	'','" . json_encode($body) . "',	'FELLO','OPEN',	'Y',	'N',	'',	null,	
+        '" . $userIns . "',	now(),	now()
+        );            ";
+        DB::insert($sql);
 
         $curl = curl_init();
         curl_setopt_array(
@@ -540,8 +541,21 @@ class FelloController extends Controller
         curl_close($curl);
         $res = json_decode($response, true);
 
-        return  $res;
+        if ($res["39"] == "00") {
+            $sql = " update  tr_ppob_master set  apiStsProvider='SUCCESS',sts='RC-" . $res["39"] . "' where ppob_id ='" . $ppob_id . "' ";
+            DB::update($sql);
 
+            $sql = " 
+                INSERT INTO tr_ppob_detail VALUES ('" . $ppob_id . "','" . $productCode . "','" . $no_anggota . "',
+                '" . $kop_id . "','" . $account . "','" . $response . "','" . $response . "','" . $userIns . "',now(),
+                now()); 
+                ";
+            DB::insert($sql);
+        } else {
+            $sql = " update  tr_ppob_master set  sts='RC-" . $res["39"] . "' where ppob_id ='" . $ppob_id . "' ";
+            DB::update($sql);
+        }
+        return $response;
     }
     public function felloMultiBillerPostPaid(Request $request, $cmd, $host)
     {
@@ -551,20 +565,22 @@ class FelloController extends Controller
         $bit2_PrimaryAccountNumber = $_POST["bit2_PrimaryAccountNumber"];
         $bit3_ProcessingCode = $_POST["bit3_ProcessingCode"];
         $bit4_TransactionAmount = $_POST["bit4_TransactionAmount"];
-        $bit7_TransmissionDateTime = date('mdhis');
-        $bit11_STAN = "";
-        $bit12_LocalTransactionTime = date('his');
-        $bit13_LocalTransactionDate = date('md');
-        $bit15_SettlementDate = date('m') . str_pad(date('d') + 1, 2, "0", STR_PAD_LEFT);
+        $bit7_TransmissionDateTime = date('mdhis'); 
+        $bit11_STAN = ""; 
+        $bit12_LocalTransactionTime = date('his'); 
+        $bit13_LocalTransactionDate = date('md'); 
+        $bit15_SettlementDate = date('m') . str_pad(date('d') + 1, 2, "0", STR_PAD_LEFT); 
         $bit18_MerchantType = "6021";
         $bit32_AcquiringInstitutionIdentificationCode = "008";
-        $bit37_RetrievalReferenceNumber = '000000114415';
+        $bit37_RetrievalReferenceNumber = '000000114415'; 
         //$bit39_ResponseCode=$_POST["bit39_ResponseCode"];
         $bit41_TerminalID = "DEVATS01";
         $bit42_AcceptorIdentification = "200900100800000";
         $bit48_AdditionalDataPrivate = $_POST["bit48_AdditionalDataPrivate"];
-        $bit49_TransactionCurrencyCode = '360';
+        $bit49_TransactionCurrencyCode = '360'; 
         $bit63_DataLoket = $_POST["bit63_DataLoket"];
+
+
 
         if ($act == "felloMultiPostPaidInq") {
             $bit11_STAN = rand('000000', '999999');
@@ -591,6 +607,14 @@ class FelloController extends Controller
                 "bit49" => $bit49_TransactionCurrencyCode,
             );
 
+
+            $sql = " insert into tr_ppob_inq (ppob_id,	kop_id,	no_anggota,	ket,	sts,apiRequest,	apiProvider,	apiStsProvider,	appYn,	verify,	userVerify,	dateVerify,	
+            userIns,	dateIns,	dateServer ) 
+            values (
+            '" . $ppob_id . "',	'" . $kop_id . "',	'" . $no_anggota . "',	'',	'','" . json_encode($body) . "',	'FELLO','INQ',	'Y',	'N',	'',	null,	
+            '" . $userIns . "',	now(),	now()
+            );            ";
+            DB::insert($sql);
 
             $curl = curl_init();
             curl_setopt_array(
@@ -629,8 +653,7 @@ class FelloController extends Controller
             $ket = $_POST["ket"];
             $nowe = $_POST["nowe"];
             $transactionId = $_POST["transactionId"];
-            //$param = $_POST["param"];
-
+        
             $body = array(
                 "mti" =>  $mti_MessageTypeIdentification,
                 "bit2" =>  $bit2_PrimaryAccountNumber,
@@ -650,6 +673,17 @@ class FelloController extends Controller
                 "bit49" => $bit49_TransactionCurrencyCode,
             );
 
+            $sql = " insert into tr_ppob_master (ppob_id,	kop_id,	no_anggota,	productCode,	nominal,	price,	serviceFee,	requestId,	account,	
+            transactionId,	time_,	amount,	refId,	currency,	ppn,	discount,	real_amount,	dibayar,	
+            kembalian,	total_item,	tipe_bayar,	ket,	sts,apiRequest,	apiProvider,	apiStsProvider,	appYn,	verify,	userVerify,	dateVerify,	
+            userIns,	dateIns,	dateServer ) 
+            values (
+            '" . $ppob_id . "',	'" . $kop_id . "',	'" . $no_anggota . "',	'" . $productCode . "',	0,	'" . $amount . "',	0,	'',	'" . $account . "',	
+            '" . $transactionId . "',	'',	'" . $amount . "',	'',	'',	0,	0,	'" . $real_amount . "',	'" . $dibayar . "',	
+            '" . $kembalian . "',	'" . $total_item . "',	'" . $tipe . "',	'',	'','" . json_encode($body) . "',	'FELLO','OPEN',	'Y',	'N',	'',	null,	
+            '" . $userIns . "',	now(),	now()
+            );            ";
+            DB::insert($sql);
 
             $curl = curl_init();
             curl_setopt_array(
@@ -665,8 +699,23 @@ class FelloController extends Controller
             $response = curl_exec($curl);
             curl_close($curl);
             $res = json_decode($response, true);
+           
 
-            return $res;
+            if ($res["39"] == "00") {
+                $sql = " update  tr_ppob_master set  apiStsProvider='SUCCESS',sts='RC-" . $res["39"] . "' where ppob_id ='" . $ppob_id . "' ";
+                DB::update($sql);
+
+                $sql = " 
+                    INSERT INTO tr_ppob_detail VALUES ('" . $ppob_id . "','" . $productCode . "','" . $no_anggota . "',
+                    '" . $kop_id . "','" . $account . "','" . $response . "','" . $response . "','" . $userIns . "',now(),
+                    now()); 
+                    ";
+                DB::insert($sql);
+            } else {
+                $sql = " update  tr_ppob_master set  sts='RC-" . $res["39"] . "' where ppob_id ='" . $ppob_id . "' ";
+                DB::update($sql);
+            }
+            return $response;
         }
     }
 
@@ -693,9 +742,9 @@ class FelloController extends Controller
         $bit42_AcceptorIdentification = $_POST["bit42_AcceptorIdentification"];
         $bit48_AdditionalDataPrivate = $_POST["bit48_AdditionalDataPrivate"];
         $bit49_TransactionCurrencyCode = $_POST["bit49_TransactionCurrencyCode"];
-        $bit61_DataTambahanBiller = $_POST["bit61_DataTambahanBiller"];
+        $bit61_DataTambahanBiller = $_POST["bit61_DataTambahanBiller"]; 
         $bit62_Data62 = $_POST["bit62_Data62"];
-        $bit63_DataLoket = $_POST["bit63_DataLoket"];
+        $bit63_DataLoket = $_POST["bit63_DataLoket"]; 
         $bit90_OriginalDataElement = $_POST["bit90_OriginalDataElement"];
 
         $body = '';
@@ -735,16 +784,25 @@ class FelloController extends Controller
         );
         $response = curl_exec($curl);
 
+
         $res = json_decode($response, true);
+        $bit39 = $res["bit39"];
+        if ($bit39 == "00") {
+            $sql = " update  tr_ppob_master set  ket='ADVICE/REVERSAL',apiStsProvider='SUCCESS',sts='RC-" . $bit39 . "' where ppob_id ='" . $ppob_id . "' and kop_id='" . $kop_id . "' ";
+            DB::update($sql);
+        } else {
+            $sql = " update  tr_ppob_master set  apiStsProvider='FAILED' ,sts='RC-" . $bit39 . "' where ppob_id ='" . $ppob_id . "' and kop_id='" . $kop_id . "' ";
+            DB::update($sql);
+        }
         curl_close($curl);
-        return $res;
+        return $response;
     }
 
     public function felloPlnReversal(Request $request, $cmd, $host)
     {
         $ppob_id = $_POST["ppob_id"];
         $kop_id = $_POST["kop_id"];
-        $sql = "
+        $sql = " 
         SELECT * FROM tr_ppob_master WHERE ppob_id='" . $ppob_id . "' AND kop_id='" . $kop_id . "'
         ";
         $results = DB::select($sql);
@@ -756,7 +814,7 @@ class FelloController extends Controller
     {
         $ppob_id = $_POST["ppob_id"];
         $kop_id = $_POST["kop_id"];
-        $sql = "
+        $sql = " 
         SELECT * FROM tr_ppob_master WHERE ppob_id='" . $ppob_id . "' AND kop_id='" . $kop_id . "'
         ";
         $results = DB::select($sql);
@@ -810,7 +868,6 @@ class FelloController extends Controller
             "bit62" => "",
             "bit63" => $bit63_DataLoket
         );
-        //var_dump($body);
 
         $curl = curl_init();
         curl_setopt_array(
@@ -826,15 +883,21 @@ class FelloController extends Controller
         $response = curl_exec($curl);
 
         $res = json_decode($response, true);
+        $bit39 = $res["39"];
+        if ($bit39 == "00") {
+            $sql = " update  tr_ppob_master set  ket='ADVICE/REVERSAL',apiStsProvider='SUCCESS',sts='RC-" . $bit39 . "' where ppob_id ='" . $ppob_id . "' and kop_id='" . $kop_id . "' ";
+            DB::update($sql);
+        } else {
+            $sql = " update  tr_ppob_master set  apiStsProvider='FAILED' ,sts='RC-" . $bit39 . "' where ppob_id ='" . $ppob_id . "' and kop_id='" . $kop_id . "' ";
+            DB::update($sql);
+        }
         curl_close($curl);
-        return $res;
+        return $response;
     }
 
     public function felloWalletSukses(Request $request, $cmd, $host)
     {
         $body = $_POST;
-
         return "oke";
-
     }
 }
