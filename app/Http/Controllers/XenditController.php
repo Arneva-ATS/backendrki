@@ -39,7 +39,7 @@ class XenditController extends Controller
                 "status" => $request->status,
                 "merchant_name" => $request->merchant_name,
                 "amount" => $request->amount,
-                "paid"=>$request->paid_amount,
+                "paid_amount"=>$request->paid_amount,
                 "description"=>$request->description,
             ]);
             if (!$insert_invoice) {
