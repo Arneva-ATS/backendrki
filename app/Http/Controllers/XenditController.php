@@ -41,7 +41,6 @@ class XenditController extends Controller
                 "amount" => $request->amount,
                 "paid"=>$request->paid_amount,
                 "description"=>$request->description,
-                "payer_email" => $request->payer_email,
             ]);
             if (!$insert_invoice) {
                 return response()->json([
