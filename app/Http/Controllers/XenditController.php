@@ -28,4 +28,29 @@ class XenditController extends Controller
             "response_message" => "OK",
         ]);
     }
+
+    public function callback_invoice(Request $request){
+        $insert_invoice = DB::table("tr_xendit")->insert([
+            "id_invoice" => $request->id,
+            "user_id" => $request->user_id,
+            "external_id" => $request->external_id,
+            "payment_method" => $request->payment_method,
+            "status" => $request->status,
+            "merchant_name" => $request->merchant_name,
+            "amount" => $request->amount,
+            "paid"=>$request->paid_amount,
+            "description"=>$request->description,
+            "payer_email" => $request->payer_email,
+        ]);
+        if (!$insert_invoice) {
+            return response()->json([
+                "response_code" => "01",
+                "response_message" => "Fail",
+            ]);
+        }
+        return response()->json([
+            "response_code" => "00",
+            "response_message" => "OK",
+        ]);
+    }
 }
