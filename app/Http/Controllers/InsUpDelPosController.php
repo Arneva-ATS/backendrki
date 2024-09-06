@@ -234,15 +234,41 @@ class InsUpDelPosController extends Controller
 
                 $resutlMaxCnt = DB::select($sql);
 
-                $sql = "
-                    INSERT INTO tr_pos_master VALUES (ifnull(CONCAT('POS-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),CONCAT('POS-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )),'" . $kop_id . "','" . $noAnngota . "','" . $toko_id . "','" . $nama_customer . "','" . $resutlMaxCnt[0]->noAntrian . "','" . $nomor_meja . "','" . $amount . "',
-                    '" . $ppn . "','" . $discount . "','" . $real_amount . "',
-                    '" . $dibayar . "','" . $kembalian . "','" . $total_item . "','" . $tipe_bayar . "','" . $ket . "','SUCCESS','UNAPPROVE','UNVERIFY','',null,'" . $userIns . "', '" . $nowe . "',
-                    case when ifnull(CONVERT_TZ(NOW(), 'UTC', 'Asia/jakarta'),'')='' then now() else CONVERT_TZ(NOW(), 'UTC', 'Asia/jakarta') end  )
-                    ";
-                $resultTotal = DB::insert($sql);
+                // $sql = "
+                //     INSERT INTO tr_pos_master VALUES (ifnull(CONCAT('POS-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),CONCAT('POS-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )),'" . $kop_id . "','" . $noAnngota . "','" . $toko_id . "','" . $nama_customer . "','" . $resutlMaxCnt[0]->noAntrian . "','" . $nomor_meja . "','" . $amount . "',
+                //     '" . $ppn . "','" . $discount . "','" . $real_amount . "',
+                //     '" . $dibayar . "','" . $kembalian . "','" . $total_item . "','" . $tipe_bayar . "','" . $ket . "','SUCCESS','UNAPPROVE','UNVERIFY','',null,'" . $userIns . "', '" . $nowe . "',
+                //     case when ifnull(CONVERT_TZ(NOW(), 'UTC', 'Asia/jakarta'),'')='' then now() else CONVERT_TZ(NOW(), 'UTC', 'Asia/jakarta') end  )
+                //     ";
+                // $resultTotal = DB::insert($sql);
+                $insertedId = DB::table('tr_pos_master')->insertGetId([
+                    'pos_id' => DB::raw("ifnull(CONCAT('POS-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),CONCAT('POS-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ))"),
+                    'kop_id' => $kop_id,
+                    'no_anggota' => $noAnngota,
+                    'toko_id' => $toko_id,
+                    'nama_customer' => $nama_customer,
+                    'noAntrian' => $resutlMaxCnt[0]->noAntrian,
+                    'noMeja' => $nomor_meja,
+                    'amount' => $amount,
+                    'ppn' => $ppn,
+                    'discount' => $discount,
+                    'real_amount' => $real_amount,
+                    'dibayar' => $dibayar,
+                    'kembalian' => $kembalian,
+                    'total_item' => $total_item,
+                    'tipe_bayar' => $tipe_bayar,
+                    'ket' => $ket,
+                    'sts' => 'SUCCESS',
+                    'appYn' => 'UNAPPROVE',
+                    'verify' => 'UNVERIFY',
+                    'userVerify' => '',
+                    'dateVerify' => null,
+                    'userIns' => $userIns,
+                    'dateIns' => $nowe,
+                    'dateServer' => DB::raw("case when ifnull(CONVERT_TZ(NOW(), 'UTC', 'Asia/jakarta'),'')='' then now() else CONVERT_TZ(NOW(), 'UTC', 'Asia/jakarta') end")
+                ]);
 
-                $resutlMsg = array("sts" => "OK", "desc" => "Save Success", "msg" => $resutlMaxCnt[0]->noAntrian);
+                $resutlMsg = array("sts" => "OK", "desc" => "Save Success", "msg" => $resutlMaxCnt[0]->noAntrian, "id_pos"=>$insertedId);
                 return json_encode($resutlMsg);
             } else {
                 $resutlMsg = array("sts" => "N", "desc" => "Save Failed", "msg" => $resultIns);

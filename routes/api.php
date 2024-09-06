@@ -7,6 +7,7 @@ use App\Http\Controllers\InsUpDelPosController;
 use App\Http\Controllers\QueryKoperasiController;
 use App\Http\Controllers\QueryPosController;
 use App\Http\Controllers\QueryMasterController;
+use App\Http\Controllers\XenditController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,4 @@ Route::post('/pos/InsUpDelPos', [InsUpDelPosController::class, 'run']);
 Route::post('/koperasi/QueryKoperasi', [QueryKoperasiController::class, 'run']);
 Route::post('/koperasi/InsUpDelKoperasi', [InsUpDelKoperasiController::class, 'run']);
 Route::post('/fello', [FelloController::class, 'run']);
+Route::post('/xendit/create-payment', [XenditController::class, 'create_invoice']);
