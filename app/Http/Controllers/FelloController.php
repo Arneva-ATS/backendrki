@@ -11,7 +11,7 @@ class FelloController extends Controller
 {
     public function run(Request $request)
     {
-        $host = "https://jatelindo.rkicoop.co.id/";
+        $host = "http://34.116.84.239/";
 
         $cmd = $request->get("cmd");
         if ($cmd == "selMasterFello") {
