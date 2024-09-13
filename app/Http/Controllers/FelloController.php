@@ -11,8 +11,7 @@ class FelloController extends Controller
 {
     public function run(Request $request)
     {
-
-        $host = "https://jatelindo.rkicoop.co.id/";
+        $host = "http://34.116.84.239/";
 
         $cmd = $request->get("cmd");
         if ($cmd == "selMasterFello") {
@@ -57,24 +56,12 @@ class FelloController extends Controller
 
     public function noCmd(Request $request, $cmd)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $resutlMsg = array("sts" => "Error", "desc" => "No Command For This API", "msg" => "No Command For This API");
         return json_encode($resutlMsg);
     }
 
     public function selMasterFello(Request $request, $cmd)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $tipe = $_POST["tipe"];
         $kode_layanan = $_POST["kode_layanan"];
         $sql = "
@@ -88,12 +75,6 @@ class FelloController extends Controller
 
     public function selWalletFello(Request $request, $cmd)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $kop_id = $_POST["kop_id"];
         $traceNumber = $_POST["traceNumber"];
         $sql = "
@@ -110,12 +91,6 @@ class FelloController extends Controller
 
     public function selHistoryWalletFello(Request $request, $cmd)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $kop_id = $_POST["kop_id"];
         $tgl_awal = $_POST["tgl_awal"];
         $tgl_akhir = $_POST["tgl_akhir"];
@@ -133,12 +108,6 @@ class FelloController extends Controller
 
     public function selWalletFelloBinding(Request $request, $cmd)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $kop_id = $_POST["kop_id"];
         $custId = $_POST["custId"];
         $sql = "
@@ -149,12 +118,6 @@ class FelloController extends Controller
     }
     public function selWalletFelloCekBinding(Request $request, $cmd)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $kop_id = $_POST["kop_id"];
         $userId = $_POST["userId"];
         $sql = "
@@ -174,12 +137,6 @@ class FelloController extends Controller
 
     public function felloSignatureAuth(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $kop_id = $_POST["kop_id"];
         $userId = $_POST["userId"];
         $sql = "
@@ -216,12 +173,6 @@ class FelloController extends Controller
 
     public function felloBalanceInquery(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $xExternalId = $_POST["xExternalId"];
         $kop_id = $_POST["kop_id"];
         $userId = $_POST["userId"];
@@ -263,12 +214,6 @@ class FelloController extends Controller
 
     public function felloAccountBinding(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $xExternalId = $_POST["xExternalId"];
         $userId = $_POST["userId"];
         $sts = $_POST["sts"];
@@ -309,12 +254,6 @@ class FelloController extends Controller
     }
     public function directDebitH2H(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $xExternalId = $_POST["xExternalId"];
         $token = $_POST["token"];
         $amount = $_POST["amount"];
@@ -360,12 +299,6 @@ class FelloController extends Controller
 
     public function felloPlnPostPaid(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $date = $_POST["date"];
         $act = $_POST["act"];
 
@@ -520,12 +453,6 @@ class FelloController extends Controller
 
     public function felloMultiBiller(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $date = $_POST["date"];
         $act = $_POST["act"];
         $mti_MessageTypeIdentification = $_POST["mti_MessageTypeIdentification"];
@@ -632,12 +559,6 @@ class FelloController extends Controller
     }
     public function felloMultiBillerPostPaid(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $date = $_POST["date"];
         $act = $_POST["act"];
         $mti_MessageTypeIdentification = $_POST["mti_MessageTypeIdentification"];
@@ -800,12 +721,6 @@ class FelloController extends Controller
 
     public function felloPlnReversalExecute(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $ppob_id = $_POST["ppob_id"];
         $act = $_POST["act"];
         $kop_id = $_POST["kop_id"];
@@ -885,12 +800,6 @@ class FelloController extends Controller
 
     public function felloPlnReversal(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $ppob_id = $_POST["ppob_id"];
         $kop_id = $_POST["kop_id"];
         $sql = "
@@ -903,12 +812,6 @@ class FelloController extends Controller
 
     public function felloMultiBillerReversal(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $ppob_id = $_POST["ppob_id"];
         $kop_id = $_POST["kop_id"];
         $sql = "
@@ -921,12 +824,6 @@ class FelloController extends Controller
 
     public function felloMultiBillerReversalExecute(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $ppob_id = $_POST["ppob_id"];
         $kop_id = $_POST["kop_id"];
 
@@ -1000,12 +897,6 @@ class FelloController extends Controller
 
     public function felloWalletSukses(Request $request, $cmd, $host)
     {
-
-        header('Access-Control-Allow-Origin: *');
-
-        header('Access-Control-Allow-Methods: GET, POST');
-
-        header("Access-Control-Allow-Headers: X-Requested-With");
         $body = $_POST;
         return "oke";
     }
