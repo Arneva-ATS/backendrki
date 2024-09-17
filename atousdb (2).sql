@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.1-1.el9
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 24, 2024 at 05:45 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: localhost
+-- Waktu pembuatan: 17 Sep 2024 pada 02.41
+-- Versi server: 10.5.22-MariaDB
+-- Versi PHP: 8.2.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_akun`
+-- Struktur dari tabel `mst_akun`
 --
 
 CREATE TABLE `mst_akun` (
@@ -41,7 +41,7 @@ CREATE TABLE `mst_akun` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_akun`
+-- Dumping data untuk tabel `mst_akun`
 --
 
 INSERT INTO `mst_akun` (`idx`, `kop_id`, `coa1`, `coa2`, `nama_akun`, `desc_akun`, `akunIdx`, `useYn`, `userIns`, `dateIns`) VALUES
@@ -51,7 +51,7 @@ INSERT INTO `mst_akun` (`idx`, `kop_id`, `coa1`, `coa2`, `nama_akun`, `desc_akun
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_anggota`
+-- Struktur dari tabel `mst_anggota`
 --
 
 CREATE TABLE `mst_anggota` (
@@ -86,7 +86,7 @@ CREATE TABLE `mst_anggota` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_anggota`
+-- Dumping data untuk tabel `mst_anggota`
 --
 
 INSERT INTO `mst_anggota` (`nik`, `no_koperasi`, `no_anggota`, `no_anggota_internal`, `usernm`, `pass`, `nama`, `no_karyawan`, `no_telp`, `photo`, `email`, `pendidikan`, `status_perkawinan`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `tanggal_masuk`, `kode_pos`, `pekerjaan`, `pekerjaan_detail`, `agama`, `hubungan_kerabat`, `no_telp_kerabat`, `kelompok`, `nama_ibu_kandung`, `insUser`, `insDt`) VALUES
@@ -1591,7 +1591,7 @@ INSERT INTO `mst_anggota` (`nik`, `no_koperasi`, `no_anggota`, `no_anggota_inter
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_anggota_temp`
+-- Struktur dari tabel `mst_anggota_temp`
 --
 
 CREATE TABLE `mst_anggota_temp` (
@@ -1627,7 +1627,7 @@ CREATE TABLE `mst_anggota_temp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_anggota_temp`
+-- Dumping data untuk tabel `mst_anggota_temp`
 --
 
 INSERT INTO `mst_anggota_temp` (`nik`, `no_koperasi`, `no_anggota`, `no_anggota_internal`, `usernm`, `pass`, `nama`, `no_karyawan`, `no_telp`, `photo`, `email`, `pendidikan`, `status_perkawinan`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `tanggal_masuk`, `kode_pos`, `pekerjaan`, `pekerjaan_detail`, `agama`, `hubungan_kerabat`, `no_telp_kerabat`, `kelompok`, `nama_ibu_kandung`, `appYn`, `insUser`, `insDt`) VALUES
@@ -1638,7 +1638,7 @@ INSERT INTO `mst_anggota_temp` (`nik`, `no_koperasi`, `no_anggota`, `no_anggota_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_barang`
+-- Struktur dari tabel `mst_barang`
 --
 
 CREATE TABLE `mst_barang` (
@@ -1663,7 +1663,7 @@ CREATE TABLE `mst_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_barang`
+-- Dumping data untuk tabel `mst_barang`
 --
 
 INSERT INTO `mst_barang` (`idx`, `kop_id`, `toko_id`, `nama_barang`, `barcode_kemasan`, `barcode_internal`, `kategori`, `unit`, `merk`, `harga_modal`, `harga_jual`, `stock`, `min_stock`, `ppn`, `foto`, `inventoryYn`, `insUser`, `insDt`) VALUES
@@ -1688,7 +1688,7 @@ INSERT INTO `mst_barang` (`idx`, `kop_id`, `toko_id`, `nama_barang`, `barcode_ke
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_barang_rutin`
+-- Struktur dari tabel `mst_barang_rutin`
 --
 
 CREATE TABLE `mst_barang_rutin` (
@@ -1706,7 +1706,7 @@ CREATE TABLE `mst_barang_rutin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_barang_rutin`
+-- Dumping data untuk tabel `mst_barang_rutin`
 --
 
 INSERT INTO `mst_barang_rutin` (`kode_barang`, `kop_id`, `toko_id`, `barcode`, `tanggal_produksi`, `tanggal_kadaluarsa`, `harga`, `barcode_qty`, `packing_qty`, `insUser`, `insDate`) VALUES
@@ -1718,7 +1718,7 @@ INSERT INTO `mst_barang_rutin` (`kode_barang`, `kop_id`, `toko_id`, `barcode`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_barang_rutin_detail`
+-- Struktur dari tabel `mst_barang_rutin_detail`
 --
 
 CREATE TABLE `mst_barang_rutin_detail` (
@@ -1734,7 +1734,7 @@ CREATE TABLE `mst_barang_rutin_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_barang_rutin_detail`
+-- Dumping data untuk tabel `mst_barang_rutin_detail`
 --
 
 INSERT INTO `mst_barang_rutin_detail` (`kode_barang`, `kop_id`, `toko_id`, `barcode`, `generate_barcode`, `sequence`, `packing_qty`, `insUser`, `insDate`) VALUES
@@ -1862,7 +1862,7 @@ INSERT INTO `mst_barang_rutin_detail` (`kode_barang`, `kop_id`, `toko_id`, `barc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_coa_group`
+-- Struktur dari tabel `mst_coa_group`
 --
 
 CREATE TABLE `mst_coa_group` (
@@ -1879,7 +1879,7 @@ CREATE TABLE `mst_coa_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_coa_group`
+-- Dumping data untuk tabel `mst_coa_group`
 --
 
 INSERT INTO `mst_coa_group` (`idx`, `kop_id`, `coa1`, `coa2`, `nama_group_coa`, `desc_group_coa`, `coaIdx`, `useYn`, `userIns`, `dateIns`) VALUES
@@ -1889,7 +1889,7 @@ INSERT INTO `mst_coa_group` (`idx`, `kop_id`, `coa1`, `coa2`, `nama_group_coa`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_coa_l2`
+-- Struktur dari tabel `mst_coa_l2`
 --
 
 CREATE TABLE `mst_coa_l2` (
@@ -1905,7 +1905,7 @@ CREATE TABLE `mst_coa_l2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_coa_l2`
+-- Dumping data untuk tabel `mst_coa_l2`
 --
 
 INSERT INTO `mst_coa_l2` (`idxd_l2`, `idx`, `kop_id`, `nama_detail_coa`, `desc_detail_coa`, `coaIdx`, `useYn`, `userIns`, `dateIns`) VALUES
@@ -1915,7 +1915,7 @@ INSERT INTO `mst_coa_l2` (`idxd_l2`, `idx`, `kop_id`, `nama_detail_coa`, `desc_d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_coa_l3`
+-- Struktur dari tabel `mst_coa_l3`
 --
 
 CREATE TABLE `mst_coa_l3` (
@@ -1932,7 +1932,7 @@ CREATE TABLE `mst_coa_l3` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_coa_l3`
+-- Dumping data untuk tabel `mst_coa_l3`
 --
 
 INSERT INTO `mst_coa_l3` (`idxd_l3`, `idxd_l2`, `idx`, `kop_id`, `nama_detail_l3_coa`, `desc_detail_l3_coa`, `coa3Idx`, `useYn`, `userIns`, `dateIns`) VALUES
@@ -1942,7 +1942,7 @@ INSERT INTO `mst_coa_l3` (`idxd_l3`, `idxd_l2`, `idx`, `kop_id`, `nama_detail_l3
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_code_detail`
+-- Struktur dari tabel `mst_code_detail`
 --
 
 CREATE TABLE `mst_code_detail` (
@@ -1960,7 +1960,7 @@ CREATE TABLE `mst_code_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_code_detail`
+-- Dumping data untuk tabel `mst_code_detail`
 --
 
 INSERT INTO `mst_code_detail` (`masterCode`, `detailCode`, `detailName`, `detailName2`, `detailIdx`, `useYn`, `detailKop`, `detailDesc`, `deleteYn`, `insDt`, `insUser`) VALUES
@@ -2089,7 +2089,7 @@ INSERT INTO `mst_code_detail` (`masterCode`, `detailCode`, `detailName`, `detail
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_code_master`
+-- Struktur dari tabel `mst_code_master`
 --
 
 CREATE TABLE `mst_code_master` (
@@ -2103,7 +2103,7 @@ CREATE TABLE `mst_code_master` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_code_master`
+-- Dumping data untuk tabel `mst_code_master`
 --
 
 INSERT INTO `mst_code_master` (`masterCode`, `masterName`, `masterName2`, `groupDesc`, `editYn`, `insDt`, `insUser`) VALUES
@@ -2134,7 +2134,7 @@ INSERT INTO `mst_code_master` (`masterCode`, `masterName`, `masterName2`, `group
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_fello_multi_biller`
+-- Struktur dari tabel `mst_fello_multi_biller`
 --
 
 CREATE TABLE `mst_fello_multi_biller` (
@@ -2155,7 +2155,7 @@ CREATE TABLE `mst_fello_multi_biller` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_fello_multi_biller`
+-- Dumping data untuk tabel `mst_fello_multi_biller`
 --
 
 INSERT INTO `mst_fello_multi_biller` (`kop_id`, `tipe`, `tipe_name`, `kode_layanan`, `kode_biller`, `product_id`, `concat_id`, `denum`, `harga_modal`, `harga`, `biller_name`, `product_name`, `updateUser`, `updateDt`) VALUES
@@ -2638,7 +2638,7 @@ INSERT INTO `mst_fello_multi_biller` (`kop_id`, `tipe`, `tipe_name`, `kode_layan
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_gudang`
+-- Struktur dari tabel `mst_gudang`
 --
 
 CREATE TABLE `mst_gudang` (
@@ -2653,7 +2653,7 @@ CREATE TABLE `mst_gudang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_gudang`
+-- Dumping data untuk tabel `mst_gudang`
 --
 
 INSERT INTO `mst_gudang` (`kopId`, `kode_gudang`, `nama_gudang`, `alamat`, `nomor_telpon`, `status`, `userIns`, `dateIns`) VALUES
@@ -2662,7 +2662,7 @@ INSERT INTO `mst_gudang` (`kopId`, `kode_gudang`, `nama_gudang`, `alamat`, `nomo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_koperasi`
+-- Struktur dari tabel `mst_koperasi`
 --
 
 CREATE TABLE `mst_koperasi` (
@@ -2709,7 +2709,7 @@ CREATE TABLE `mst_koperasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='data koperasi';
 
 --
--- Dumping data for table `mst_koperasi`
+-- Dumping data untuk tabel `mst_koperasi`
 --
 
 INSERT INTO `mst_koperasi` (`pk`, `idx`, `nama_koperasi`, `noAccount`, `no_telp`, `no_hp`, `no_fax`, `jenis_koperasi`, `alamat`, `kode_pos`, `email`, `website`, `akta_pendirian_nomor`, `akta_pendirian_tanggal`, `akta_perubahan_nomor`, `akta_perubahan_tanggal`, `sk_kemenkumham_nomor`, `sk_kemenkumham_bulan`, `sk_kemenkumham_tanggal`, `sk_kemenkumham_tahun`, `no_surat_pengesahan_nomor`, `no_surat_pengesahan_bulan`, `no_surat_pengesahan_tanggal`, `no_surat_pengesahan_tahun`, `siup_nomor`, `tdp_nomor`, `tdp_masaberlaku`, `surat_keterangan_domisili_nomor`, `surat_keterangan_domisili_masaberlaku`, `bpjs_kesehatan`, `bpjs_ketenagakerjaan`, `no_sertifikat_koperasi`, `aktif`, `fello_x_timestamp`, `fello_x_private_key`, `fello_x_client_key`, `fello_x_client_secret`, `fello_x_partner_id`, `insUser`, `insDt`) VALUES
@@ -2724,7 +2724,7 @@ INSERT INTO `mst_koperasi` (`pk`, `idx`, `nama_koperasi`, `noAccount`, `no_telp`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_pembeli`
+-- Struktur dari tabel `mst_pembeli`
 --
 
 CREATE TABLE `mst_pembeli` (
@@ -2739,7 +2739,7 @@ CREATE TABLE `mst_pembeli` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_pembeli`
+-- Dumping data untuk tabel `mst_pembeli`
 --
 
 INSERT INTO `mst_pembeli` (`kop_id`, `kode_pembeli`, `nama_pembeli`, `alamat`, `nomor_telpon`, `status`, `userIns`, `dateIns`) VALUES
@@ -2748,7 +2748,7 @@ INSERT INTO `mst_pembeli` (`kop_id`, `kode_pembeli`, `nama_pembeli`, `alamat`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_suplier`
+-- Struktur dari tabel `mst_suplier`
 --
 
 CREATE TABLE `mst_suplier` (
@@ -2763,7 +2763,7 @@ CREATE TABLE `mst_suplier` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_suplier`
+-- Dumping data untuk tabel `mst_suplier`
 --
 
 INSERT INTO `mst_suplier` (`kop_id`, `kode_suplier`, `nama_suplier`, `alamat`, `nomor_telpon`, `status`, `userIns`, `dateIns`) VALUES
@@ -2772,7 +2772,7 @@ INSERT INTO `mst_suplier` (`kop_id`, `kode_suplier`, `nama_suplier`, `alamat`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_toko`
+-- Struktur dari tabel `mst_toko`
 --
 
 CREATE TABLE `mst_toko` (
@@ -2793,7 +2793,7 @@ CREATE TABLE `mst_toko` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='data toko';
 
 --
--- Dumping data for table `mst_toko`
+-- Dumping data untuk tabel `mst_toko`
 --
 
 INSERT INTO `mst_toko` (`toko_id`, `kop_id`, `nama_toko`, `no_telp`, `no_hp`, `no_fax`, `jenis_toko`, `alamat`, `kode_pos`, `email`, `website`, `aktif`, `insUser`, `insDt`) VALUES
@@ -2806,7 +2806,7 @@ INSERT INTO `mst_toko` (`toko_id`, `kop_id`, `nama_toko`, `no_telp`, `no_hp`, `n
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_user`
+-- Struktur dari tabel `mst_user`
 --
 
 CREATE TABLE `mst_user` (
@@ -2823,7 +2823,7 @@ CREATE TABLE `mst_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `mst_user`
+-- Dumping data untuk tabel `mst_user`
 --
 
 INSERT INTO `mst_user` (`userId`, `userNm`, `userPwd`, `no_koperasi`, `no_toko`, `namaUser`, `aktif`, `level`, `userIns`, `dateIns`) VALUES
@@ -2845,7 +2845,7 @@ INSERT INTO `mst_user` (`userId`, `userNm`, `userPwd`, `no_koperasi`, `no_toko`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sysmenu`
+-- Struktur dari tabel `sysmenu`
 --
 
 CREATE TABLE `sysmenu` (
@@ -2865,7 +2865,7 @@ CREATE TABLE `sysmenu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='untuk mengatur menu';
 
 --
--- Dumping data for table `sysmenu`
+-- Dumping data untuk tabel `sysmenu`
 --
 
 INSERT INTO `sysmenu` (`menuCode`, `menuName`, `menuClass`, `menuLink`, `menuAction`, `menuTitle`, `menuDesc`, `menuOrder`, `menuTipe`, `menuIcon`, `menuColor`, `insUser`, `insDate`) VALUES
@@ -2936,7 +2936,7 @@ INSERT INTO `sysmenu` (`menuCode`, `menuName`, `menuClass`, `menuLink`, `menuAct
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_angsuran`
+-- Struktur dari tabel `tr_angsuran`
 --
 
 CREATE TABLE `tr_angsuran` (
@@ -2959,7 +2959,7 @@ CREATE TABLE `tr_angsuran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_angsuran`
+-- Dumping data untuk tabel `tr_angsuran`
 --
 
 INSERT INTO `tr_angsuran` (`nomor_pinjaman`, `no_pengajuan`, `no_pengajuan_idx`, `no_anggota`, `kop_id`, `jatuh_tempo`, `jumlah_angsuran`, `angsuran_ke`, `denda`, `remark`, `foto_bukti`, `sts`, `insUser`, `insDt`, `updUser`, `updDt`) VALUES
@@ -2992,7 +2992,7 @@ INSERT INTO `tr_angsuran` (`nomor_pinjaman`, `no_pengajuan`, `no_pengajuan_idx`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_cart`
+-- Struktur dari tabel `tr_cart`
 --
 
 CREATE TABLE `tr_cart` (
@@ -3015,7 +3015,7 @@ CREATE TABLE `tr_cart` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_do_detail`
+-- Struktur dari tabel `tr_do_detail`
 --
 
 CREATE TABLE `tr_do_detail` (
@@ -3032,7 +3032,7 @@ CREATE TABLE `tr_do_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_do_detail`
+-- Dumping data untuk tabel `tr_do_detail`
 --
 
 INSERT INTO `tr_do_detail` (`kop_id`, `do_no`, `do_seq`, `kode_barang`, `harga_barang`, `jumlah_barang`, `satuan_barang`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3044,7 +3044,7 @@ INSERT INTO `tr_do_detail` (`kop_id`, `do_no`, `do_seq`, `kode_barang`, `harga_b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_do_master`
+-- Struktur dari tabel `tr_do_master`
 --
 
 CREATE TABLE `tr_do_master` (
@@ -3058,7 +3058,7 @@ CREATE TABLE `tr_do_master` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_do_master`
+-- Dumping data untuk tabel `tr_do_master`
 --
 
 INSERT INTO `tr_do_master` (`kop_id`, `no_do`, `pembeli_no`, `tgl_do`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3068,7 +3068,7 @@ INSERT INTO `tr_do_master` (`kop_id`, `no_do`, `pembeli_no`, `tgl_do`, `userIns`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_fello_wallet`
+-- Struktur dari tabel `tr_fello_wallet`
 --
 
 CREATE TABLE `tr_fello_wallet` (
@@ -3090,7 +3090,7 @@ CREATE TABLE `tr_fello_wallet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_fello_wallet`
+-- Dumping data untuk tabel `tr_fello_wallet`
 --
 
 INSERT INTO `tr_fello_wallet` (`wallet_id`, `kop_id`, `userEntry`, `noAccount`, `amount`, `traceNumber`, `transactionNumber`, `tgl_tran`, `status_fello`, `respon_return`, `respon_notify`, `userIns`, `dateIns`, `dateUpd`, `dateServer`) VALUES
@@ -3106,12 +3106,15 @@ INSERT INTO `tr_fello_wallet` (`wallet_id`, `kop_id`, `userEntry`, `noAccount`, 
 ('2024415131589721715752919', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '084112341234', 20000, '2024415131589721715752919', '2024051513020837000617965', '2024-05-15 06:02:09', 'PROCESSED', '{\"amount\":\"20000\",\"traceNumber\":\"2024415131589721715752919\",\"transactionNumber\":\"2024051513020837000617965\",\"channelId\":\"1\",\"status\":\"PROCESSED\"}', '', 'USER-20230530070523-275000', '2024-05-15 06:02:09', NULL, '2024-05-15 06:02:09'),
 ('2024415816197331715735780', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '084112341234', 390500, '2024415816197331715735780', '2024051508164169500735879', '2024-05-15 01:16:47', 'PROCESSED', '{\"amount\":\"390500\",\"traceNumber\":\"2024415816197331715735780\",\"transactionNumber\":\"2024051508164169500735879\",\"channelId\":\"1\",\"status\":\"PROCESSED\"}', '', 'USER-20230530070523-275000', '2024-05-15 01:16:47', NULL, '2024-05-15 01:16:47'),
 ('2024415825159671715736316', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '084112341234', 20000, '2024415825159671715736316', '2024051508252405300839962', '2024-05-15 01:25:24', 'PROCESSED', '{\"amount\":\"20000\",\"traceNumber\":\"2024415825159671715736316\",\"transactionNumber\":\"2024051508252405300839962\",\"channelId\":\"1\",\"status\":\"PROCESSED\"}', '', 'USER-20230530070523-275000', '2024-05-15 01:25:24', NULL, '2024-05-15 01:25:24'),
+('20247271933315851724762012', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '084112341234', 20000, '20247271933315851724762012', '2024082719343275700930606', '2024-08-27 12:34:35', 'PROCESSED', '{\"amount\":\"20000\",\"traceNumber\":\"20247271933315851724762012\",\"transactionNumber\":\"2024082719343275700930606\",\"channelId\":\"1\",\"status\":\"PROCESSED\"}', '', 'USER-20230530070523-275000', '2024-08-27 12:34:35', NULL, '2024-08-27 12:34:35'),
+('20247272018515791724764732', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '084112341234', 20000, '20247272018515791724764732', '2024082720190746000258201', '2024-08-27 13:19:10', 'PROCESSED', '{\"amount\":\"20000\",\"traceNumber\":\"20247272018515791724764732\",\"transactionNumber\":\"2024082720190746000258201\",\"channelId\":\"1\",\"status\":\"PROCESSED\"}', '', 'USER-20230530070523-275000', '2024-08-27 13:19:10', NULL, '2024-08-27 13:19:10'),
+('2024728120595871724821260', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '084112341234', 20000, '2024728120595871724821260', '2024082812010615600657048', '2024-08-28 05:01:09', 'PROCESSED', '{\"amount\":\"20000\",\"traceNumber\":\"2024728120595871724821260\",\"transactionNumber\":\"2024082812010615600657048\",\"channelId\":\"1\",\"status\":\"PROCESSED\"}', '', 'USER-20230530070523-275000', '2024-08-28 05:01:09', NULL, '2024-08-28 05:01:09'),
 ('fsdfs', '', '', '', 0, '', '', '2024-04-02 10:49:10', 'test', '[]', '', '', '2024-04-02 10:49:10', NULL, '2024-04-02 10:49:10');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_fello_wallet_binding`
+-- Struktur dari tabel `tr_fello_wallet_binding`
 --
 
 CREATE TABLE `tr_fello_wallet_binding` (
@@ -3130,7 +3133,7 @@ CREATE TABLE `tr_fello_wallet_binding` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_fello_wallet_binding`
+-- Dumping data untuk tabel `tr_fello_wallet_binding`
 --
 
 INSERT INTO `tr_fello_wallet_binding` (`idx`, `wallet_id`, `kop_id`, `userEntry`, `noAccount`, `traceNumber`, `request`, `response`, `act`, `sts`, `dateIns`, `dateUpd`) VALUES
@@ -3155,7 +3158,7 @@ INSERT INTO `tr_fello_wallet_binding` (`idx`, `wallet_id`, `kop_id`, `userEntry`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_fello_wallet_log_binding`
+-- Struktur dari tabel `tr_fello_wallet_log_binding`
 --
 
 CREATE TABLE `tr_fello_wallet_log_binding` (
@@ -3171,7 +3174,7 @@ CREATE TABLE `tr_fello_wallet_log_binding` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_fello_wallet_log_binding`
+-- Dumping data untuk tabel `tr_fello_wallet_log_binding`
 --
 
 INSERT INTO `tr_fello_wallet_log_binding` (`idx`, `noAccount`, `traceNumber`, `request`, `response`, `act`, `sts`, `dateIns`, `dateUpd`) VALUES
@@ -3198,7 +3201,7 @@ INSERT INTO `tr_fello_wallet_log_binding` (`idx`, `noAccount`, `traceNumber`, `r
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_grn_detail`
+-- Struktur dari tabel `tr_grn_detail`
 --
 
 CREATE TABLE `tr_grn_detail` (
@@ -3216,7 +3219,7 @@ CREATE TABLE `tr_grn_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_grn_detail`
+-- Dumping data untuk tabel `tr_grn_detail`
 --
 
 INSERT INTO `tr_grn_detail` (`kop_id`, `grn_no`, `grn_seq`, `po_no`, `kode_barang`, `harga_barang`, `jumlah_barang`, `satuan_barang`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3227,7 +3230,7 @@ INSERT INTO `tr_grn_detail` (`kop_id`, `grn_no`, `grn_seq`, `po_no`, `kode_baran
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_grn_master`
+-- Struktur dari tabel `tr_grn_master`
 --
 
 CREATE TABLE `tr_grn_master` (
@@ -3241,7 +3244,7 @@ CREATE TABLE `tr_grn_master` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_grn_master`
+-- Dumping data untuk tabel `tr_grn_master`
 --
 
 INSERT INTO `tr_grn_master` (`kop_id`, `grn_no`, `suplier_no`, `tgl_grn`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3251,7 +3254,7 @@ INSERT INTO `tr_grn_master` (`kop_id`, `grn_no`, `suplier_no`, `tgl_grn`, `userI
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_kas`
+-- Struktur dari tabel `tr_kas`
 --
 
 CREATE TABLE `tr_kas` (
@@ -3275,7 +3278,7 @@ CREATE TABLE `tr_kas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_kas`
+-- Dumping data untuk tabel `tr_kas`
 --
 
 INSERT INTO `tr_kas` (`noTran`, `idx`, `noTranContra`, `tanggal_tran`, `coa`, `kop_id`, `nama_transaksi`, `jenisTran`, `amount`, `appYn`, `verify`, `appDt`, `appUser`, `verifyDt`, `verifyUser`, `userIns`, `dateIns`) VALUES
@@ -3295,7 +3298,7 @@ INSERT INTO `tr_kas` (`noTran`, `idx`, `noTranContra`, `tanggal_tran`, `coa`, `k
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_log_fello_wallet`
+-- Struktur dari tabel `tr_log_fello_wallet`
 --
 
 CREATE TABLE `tr_log_fello_wallet` (
@@ -3314,7 +3317,7 @@ CREATE TABLE `tr_log_fello_wallet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_log_fello_wallet`
+-- Dumping data untuk tabel `tr_log_fello_wallet`
 --
 
 INSERT INTO `tr_log_fello_wallet` (`idx`, `wallet_id`, `kop_id`, `userEntry`, `noAccount`, `traceNumber`, `transactionNumber`, `request`, `response`, `sts`, `dateIns`, `dateInsServer`) VALUES
@@ -3336,12 +3339,15 @@ INSERT INTO `tr_log_fello_wallet` (`idx`, `wallet_id`, `kop_id`, `userEntry`, `n
 ('202405150129261715736566090', '', '/api/felloWalletPayNotify', '', '', '2024415824212751715736261', '', '', '{\"amount\":\"20000\",\"traceNumber\":\"2024415824212751715736261\",\"transactionNumber\":null,\"customerId\":\"084112341234\",\"processedAt\":\"2024-05-15T08:29:25+07:00\",\"channelId\":\"1\",\"status\":{\"responseCode\":\"R16\",\"message\":\"REQUEST_TIMEOUT\",\"description\":\"Time to process your request has run out\"}}', 'Time to process your request has run out', '2024-05-15 01:29:26', '2024-05-15 01:29:26'),
 ('202405150602081715752928751', '', '/api/felloWalletPayNotify', '', '', '2024415131589721715752919', '2024051513020837000617965', '', '{\"amount\":\"20000\",\"traceNumber\":\"2024415131589721715752919\",\"transactionNumber\":\"2024051513020837000617965\",\"customerId\":\"084112341234\",\"processedAt\":\"2024-05-15T13:02:08+07:00\",\"channelId\":\"1\",\"status\":{\"responseCode\":\"A00\",\"message\":\"PROCESSED\",\"description\":\"Transaction completed\"}}', 'Transaction completed', '2024-05-15 06:02:09', '2024-05-15 06:02:09'),
 ('202405150613341715753614846', '', '/api/felloWalletPayNotify', '', '', '20244151313246511715753605', '2024051513133463400424534', '', '{\"amount\":\"20000\",\"traceNumber\":\"20244151313246511715753605\",\"transactionNumber\":\"2024051513133463400424534\",\"customerId\":\"084112341234\",\"processedAt\":\"2024-05-15T13:13:34+07:00\",\"channelId\":\"1\",\"status\":{\"responseCode\":\"A00\",\"message\":\"PROCESSED\",\"description\":\"Transaction completed\"}}', 'Transaction completed', '2024-05-15 06:13:35', '2024-05-15 06:13:35'),
-('202405150614271715753667036', '', '/api/felloWalletPayNotify', '', '', '20244151314176611715753658', '2024051513142682500797297', '', '{\"amount\":\"22220\",\"traceNumber\":\"20244151314176611715753658\",\"transactionNumber\":\"2024051513142682500797297\",\"customerId\":\"084112341234\",\"processedAt\":\"2024-05-15T13:14:26+07:00\",\"channelId\":\"1\",\"status\":{\"responseCode\":\"A00\",\"message\":\"PROCESSED\",\"description\":\"Transaction completed\"}}', 'Transaction completed', '2024-05-15 06:14:27', '2024-05-15 06:14:27');
+('202405150614271715753667036', '', '/api/felloWalletPayNotify', '', '', '20244151314176611715753658', '2024051513142682500797297', '', '{\"amount\":\"22220\",\"traceNumber\":\"20244151314176611715753658\",\"transactionNumber\":\"2024051513142682500797297\",\"customerId\":\"084112341234\",\"processedAt\":\"2024-05-15T13:14:26+07:00\",\"channelId\":\"1\",\"status\":{\"responseCode\":\"A00\",\"message\":\"PROCESSED\",\"description\":\"Transaction completed\"}}', 'Transaction completed', '2024-05-15 06:14:27', '2024-05-15 06:14:27'),
+('202408270119101724764750058', '', '/api/felloWalletPayNotify', '', '', '20247272018515791724764732', '2024082720190746000258201', '', '{\"amount\":\"20000\",\"traceNumber\":\"20247272018515791724764732\",\"transactionNumber\":\"2024082720190746000258201\",\"customerId\":\"084112341234\",\"processedAt\":\"2024-08-27T20:19:07+07:00\",\"channelId\":\"1\",\"status\":{\"responseCode\":\"A00\",\"message\":\"PROCESSED\",\"description\":\"Transaction completed\"}}', 'Transaction completed', '2024-08-27 13:19:10', '2024-08-27 13:19:10'),
+('202408271234351724762075330', '', '/api/felloWalletPayNotify', '', '', '20247271933315851724762012', '2024082719343275700930606', '', '{\"amount\":\"20000\",\"traceNumber\":\"20247271933315851724762012\",\"transactionNumber\":\"2024082719343275700930606\",\"customerId\":\"084112341234\",\"processedAt\":\"2024-08-27T19:34:32+07:00\",\"channelId\":\"1\",\"status\":{\"responseCode\":\"A00\",\"message\":\"PROCESSED\",\"description\":\"Transaction completed\"}}', 'Transaction completed', '2024-08-27 12:34:35', '2024-08-27 12:34:35'),
+('202408280501091724821269251', '', '/api/felloWalletPayNotify', '', '', '2024728120595871724821260', '2024082812010615600657048', '', '{\"amount\":\"20000\",\"traceNumber\":\"2024728120595871724821260\",\"transactionNumber\":\"2024082812010615600657048\",\"customerId\":\"084112341234\",\"processedAt\":\"2024-08-28T12:01:06+07:00\",\"channelId\":\"1\",\"status\":{\"responseCode\":\"A00\",\"message\":\"PROCESSED\",\"description\":\"Transaction completed\"}}', 'Transaction completed', '2024-08-28 05:01:09', '2024-08-28 05:01:09');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_pengajuan_pinjaman`
+-- Struktur dari tabel `tr_pengajuan_pinjaman`
 --
 
 CREATE TABLE `tr_pengajuan_pinjaman` (
@@ -3366,7 +3372,7 @@ CREATE TABLE `tr_pengajuan_pinjaman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_pengajuan_pinjaman`
+-- Dumping data untuk tabel `tr_pengajuan_pinjaman`
 --
 
 INSERT INTO `tr_pengajuan_pinjaman` (`noPengajuan`, `idx`, `kop_id`, `no_anggota`, `tanggal_pengajuan`, `tipe_pinjaman`, `jumlah_pinjaman`, `jumlah_angsuran`, `lama_pinjaman`, `lama_pinjaman_bulan`, `keterangan`, `status`, `status_dt`, `alasan_cair`, `tgl_cair`, `ins_user`, `ins_dt`, `upd_dt`) VALUES
@@ -3382,12 +3388,13 @@ INSERT INTO `tr_pengajuan_pinjaman` (`noPengajuan`, `idx`, `kop_id`, `no_anggota
 ('20231011-142453635', 'COP-2023911142337700', 'KOP-20230530070538-851000', 'AGT-20231003131005-849000', '2023-10-11 14:24:53', '000001', 20000000, 2000000, '000001', '12', '', '000001', '2023-10-11 14:24:53', '', NULL, 'USER-20230530070523-275000', NULL, NULL),
 ('20231016-093919145', 'MOB-202391693842865', 'KOP-20230530070538-851000', 'AGT-20231003131005-849000', '2023-10-16 09:39:19', '000001', 1000000, 191666, '000002', '6', '', '000001', '2023-10-16 09:39:19', '', NULL, 'AGT-20231003131005-849000', NULL, NULL),
 ('20240228-13314867', 'COP-202412813318909', 'KOP-20230530070538-851000', 'AGT-20230607080643-996000', '2024-02-28 13:31:48', '000001', 5000000, 1833333, '000003', '3', 'TEST', '000002', '2024-02-28 13:31:48', '', '2024-02-28 13:50:52', 'USER-20240227110252-131000', NULL, '2024-02-28 13:50:52'),
-('20240228-141001604', 'COP-202412814852412', 'KOP-20230530070538-851000', 'AGT-20230607080643-996000', '2024-02-28 14:10:01', '000001', 5000000, 1833333, '000003', '3', 'Pengajuan Ke 2', '000003', '2024-02-28 14:10:01', '', '2024-02-28 14:19:05', 'USER-20230530070523-275000', NULL, '2024-02-28 14:19:05');
+('20240228-141001604', 'COP-202412814852412', 'KOP-20230530070538-851000', 'AGT-20230607080643-996000', '2024-02-28 14:10:01', '000001', 5000000, 1833333, '000003', '3', 'Pengajuan Ke 2', '000003', '2024-02-28 14:10:01', '', '2024-02-28 14:19:05', 'USER-20230530070523-275000', NULL, '2024-02-28 14:19:05'),
+('20240829-114355379', 'COP-202472918437332', 'KOP-20230530070538-851000', 'AGT-20231003131005-849000', '2024-08-29 11:43:55', '000001', 1000000, 366667, '000003', '3', 'Pinjaman Pendidikan', '000001', '2024-08-29 11:43:55', '', NULL, 'USER-20230530070523-275000', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_pos`
+-- Struktur dari tabel `tr_pos`
 --
 
 CREATE TABLE `tr_pos` (
@@ -3404,7 +3411,7 @@ CREATE TABLE `tr_pos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_pos`
+-- Dumping data untuk tabel `tr_pos`
 --
 
 INSERT INTO `tr_pos` (`pos_id`, `kode_barang`, `barcode`, `kop_id`, `harga`, `qty`, `ppn`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3603,6 +3610,28 @@ INSERT INTO `tr_pos` (`pos_id`, `kode_barang`, `barcode`, `kop_id`, `harga`, `qt
 ('202471414951479', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-14 14:09:54', '2024-08-14 14:09:53'),
 ('2024714152756888', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 3, 0, 'USER-20230530070523-275000', '2024-08-14 15:28:00', '2024-08-14 15:27:59'),
 ('2024714152756888', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 3, 0, 'USER-20230530070523-275000', '2024-08-14 15:27:58', '2024-08-14 15:27:57'),
+('202472410034205', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-24 10:00:54', '2024-08-24 10:00:35'),
+('202472410034205', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-24 10:00:53', '2024-08-24 10:00:34'),
+('202472495643806', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-08-24 09:57:15', '2024-08-24 09:56:57'),
+('202472495643806', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-24 09:57:16', '2024-08-24 09:56:58'),
+('202472495643806', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-24 09:57:18', '2024-08-24 09:56:59'),
+('202472495914470', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-08-24 09:59:18', '2024-08-24 09:58:59'),
+('202472495914470', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-24 09:59:16', '2024-08-24 09:58:58'),
+('2024727192112675', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-27 19:21:16', '2024-08-27 19:21:14'),
+('2024727192112675', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-08-27 19:21:16', '2024-08-27 19:21:14'),
+('2024727192112675', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-27 19:21:16', '2024-08-27 19:21:14'),
+('2024727192112675', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-27 19:21:17', '2024-08-27 19:21:15'),
+('2024727201322149', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-08-27 20:13:24', '2024-08-27 20:13:16'),
+('2024727201322149', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 2, 0, 'USER-20230530070523-275000', '2024-08-27 20:13:25', '2024-08-27 20:13:17'),
+('2024727205359760', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-27 20:54:01', '2024-08-27 20:53:54'),
+('2024727205359760', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-27 20:54:01', '2024-08-27 20:53:53'),
+('2024728115151608', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-28 11:51:52', '2024-08-28 11:51:53'),
+('2024728115151608', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-28 11:51:53', '2024-08-28 11:51:53'),
+('2024729183944856', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-08-29 18:39:46', '2024-08-29 18:39:41'),
+('2024729183944856', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-08-29 18:39:46', '2024-08-29 18:39:42'),
+('2024729183944856', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-29 18:39:47', '2024-08-29 18:39:42'),
+('2024729183944856', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-08-29 18:39:47', '2024-08-29 18:39:43'),
+('2024729183944856', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-29 18:39:48', '2024-08-29 18:39:44'),
 ('2024798332893', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-09 08:33:05', '2024-08-09 08:33:06'),
 ('2024798332893', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-09 08:33:05', '2024-08-09 08:33:05'),
 ('20247983722374', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-08-09 08:37:26', '2024-08-09 08:37:26'),
@@ -3611,12 +3640,77 @@ INSERT INTO `tr_pos` (`pos_id`, `kode_barang`, `barcode`, `kop_id`, `harga`, `qt
 ('20247984332460', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-08-09 08:43:35', '2024-08-09 08:43:35'),
 ('20247984332460', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-09 08:43:34', '2024-08-09 08:43:34'),
 ('20247984441945', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-08-09 08:44:46', '2024-08-09 08:44:46'),
-('20247984441945', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-09 08:44:47', '2024-08-09 08:44:47');
+('20247984441945', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-09 08:44:47', '2024-08-09 08:44:47'),
+('202481210331628', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:33:17', '2024-09-12 03:33:17'),
+('202481210331628', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:33:17', '2024-09-12 03:33:17'),
+('202481210331628', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:33:17', '2024-09-12 03:33:16'),
+('2024812103410290', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:34:11', '2024-09-12 03:34:11'),
+('2024812103410290', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:34:11', '2024-09-12 03:34:11'),
+('2024812103410290', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:34:12', '2024-09-12 03:34:12'),
+('2024812103719144', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:37:20', '2024-09-12 03:37:20'),
+('2024812103719144', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:37:20', '2024-09-12 03:37:20'),
+('2024812104421635', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:44:23', '2024-09-12 03:44:22'),
+('2024812104421635', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:44:22', '2024-09-12 03:44:22'),
+('2024812104421635', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:44:24', '2024-09-12 03:44:23'),
+('2024812104541258', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:45:42', '2024-09-12 03:45:41'),
+('2024812104541258', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:45:42', '2024-09-12 03:45:42'),
+('2024812104541258', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:45:43', '2024-09-12 03:45:43'),
+('2024812104553346', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:45:57', '2024-09-12 03:45:57'),
+('2024812104553346', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:45:58', '2024-09-12 03:45:58'),
+('2024812104553346', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:45:58', '2024-09-12 03:45:58'),
+('202481210484281', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:48:05', '2024-09-12 03:48:05'),
+('202481210484281', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:48:05', '2024-09-12 03:48:05'),
+('20248121112496', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:12:05', '2024-09-12 04:12:05'),
+('20248121112496', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 2, 0, 'USER-20230530070523-275000', '2024-09-12 11:12:05', '2024-09-12 04:12:05'),
+('20248121112496', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:12:07', '2024-09-12 04:12:07'),
+('2024812115352882', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:53:54', '2024-09-12 04:53:53'),
+('2024812115352882', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:53:54', '2024-09-12 04:53:54'),
+('2024812115352882', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:53:55', '2024-09-12 04:53:55'),
+('2024812115537383', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:55:38', '2024-09-12 04:55:37'),
+('2024812115537383', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:55:38', '2024-09-12 04:55:38'),
+('2024812115549366', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:55:51', '2024-09-12 04:55:51'),
+('2024812115549366', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:55:51', '2024-09-12 04:55:51'),
+('2024812115549366', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:55:52', '2024-09-12 04:55:52'),
+('2024812121333403', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:13:35', '2024-09-12 05:13:34'),
+('2024812121333403', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:13:34', '2024-09-12 05:13:34'),
+('2024812121333403', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:13:37', '2024-09-12 05:13:36'),
+('2024812121515826', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:15:18', '2024-09-12 05:15:18'),
+('2024812121515826', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:15:18', '2024-09-12 05:15:17'),
+('2024812121515826', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:15:17', '2024-09-12 05:15:16'),
+('202481212202388', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:20:05', '2024-09-12 05:20:04'),
+('202481212202388', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:20:04', '2024-09-12 05:20:03'),
+('202481212216407', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:02:18', '2024-09-12 05:02:17'),
+('202481212216407', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:02:18', '2024-09-12 05:02:18'),
+('202481212216407', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:02:19', '2024-09-12 05:02:18'),
+('202481212216407', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:02:21', '2024-09-12 05:02:20'),
+('202481212943234', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:09:48', '2024-09-12 05:09:47'),
+('202481212943234', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:09:44', '2024-09-12 05:09:43'),
+('202481212943234', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:09:44', '2024-09-12 05:09:44'),
+('2024813105621308', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-13 10:56:23', '2024-09-13 03:56:23'),
+('2024813105621308', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-13 10:56:22', '2024-09-13 03:56:22'),
+('2024813105621308', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-13 10:56:27', '2024-09-13 03:56:27'),
+('20248411300300', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-04 11:30:01', '2024-09-04 11:30:02'),
+('20248411300300', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-04 11:30:02', '2024-09-04 11:30:02'),
+('202484113039783', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-04 11:30:40', '2024-09-04 11:30:41'),
+('202484113039783', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-04 11:30:40', '2024-09-04 11:30:41'),
+('202484113039783', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-04 11:30:41', '2024-09-04 11:30:41'),
+('202486103410536', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 10:34:12', '2024-09-06 10:34:12'),
+('202486103410536', 'BRG-20240819090825-041000', '123', 'KOP-20230530070538-851000', 150, 1, 0, 'USER-20230530070523-275000', '2024-09-06 10:34:11', '2024-09-06 10:34:12'),
+('202486103428902', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 10:34:35', '2024-09-06 10:34:35'),
+('202486103428902', 'BRG-20240819090825-041000', '123', 'KOP-20230530070538-851000', 150, 1, 0, 'USER-20230530070523-275000', '2024-09-06 10:34:36', '2024-09-06 10:34:36'),
+('202486111533208', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:15:34', '2024-09-06 11:15:34'),
+('202486111533208', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:15:34', '2024-09-06 11:15:34'),
+('202486113213481', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:32:14', '2024-09-06 11:32:14'),
+('202486113213481', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:32:14', '2024-09-06 11:32:14'),
+('202486113226120', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 2, 0, 'USER-20230530070523-275000', '2024-09-06 11:32:27', '2024-09-06 11:32:26'),
+('202486113226120', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:32:27', '2024-09-06 11:32:27'),
+('202486113244680', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:32:45', '2024-09-06 11:32:45'),
+('202486113244680', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:32:45', '2024-09-06 11:32:45');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_pos_barcode`
+-- Struktur dari tabel `tr_pos_barcode`
 --
 
 CREATE TABLE `tr_pos_barcode` (
@@ -3635,7 +3729,7 @@ CREATE TABLE `tr_pos_barcode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_pos_barcode`
+-- Dumping data untuk tabel `tr_pos_barcode`
 --
 
 INSERT INTO `tr_pos_barcode` (`pos_id`, `kode_barang`, `generate_barcode`, `kop_id`, `harga`, `discount`, `discount_value`, `qty`, `ppn`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3671,7 +3765,7 @@ INSERT INTO `tr_pos_barcode` (`pos_id`, `kode_barang`, `generate_barcode`, `kop_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_pos_detail`
+-- Struktur dari tabel `tr_pos_detail`
 --
 
 CREATE TABLE `tr_pos_detail` (
@@ -3688,7 +3782,7 @@ CREATE TABLE `tr_pos_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_pos_detail`
+-- Dumping data untuk tabel `tr_pos_detail`
 --
 
 INSERT INTO `tr_pos_detail` (`pos_id`, `kode_barang`, `barcode`, `kop_id`, `harga`, `qty`, `ppn`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3705,15 +3799,91 @@ INSERT INTO `tr_pos_detail` (`pos_id`, `kode_barang`, `barcode`, `kop_id`, `harg
 ('2024714144825544', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-08-14 14:48:35', '2024-08-14 14:48:33'),
 ('2024714144825544', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-14 14:48:35', '2024-08-14 14:48:33'),
 ('2024714152756888', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 3, 0, 'USER-20230530070523-275000', '2024-08-14 15:28:34', '2024-08-14 15:28:33'),
-('2024714152756888', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 3, 0, 'USER-20230530070523-275000', '2024-08-14 15:28:34', '2024-08-14 15:28:33');
+('2024714152756888', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 3, 0, 'USER-20230530070523-275000', '2024-08-14 15:28:34', '2024-08-14 15:28:33'),
+('202472495643806', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-08-24 09:57:33', '2024-08-24 09:57:14'),
+('202472495643806', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-24 09:57:33', '2024-08-24 09:57:14'),
+('202472495643806', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-24 09:57:33', '2024-08-24 09:57:14'),
+('202472495914470', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-08-24 10:00:20', '2024-08-24 10:00:00'),
+('202472495914470', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-24 10:00:20', '2024-08-24 10:00:00'),
+('2024727192112675', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-27 19:21:24', '2024-08-27 19:21:21'),
+('2024727192112675', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-08-27 19:21:24', '2024-08-27 19:21:21'),
+('2024727192112675', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-27 19:21:24', '2024-08-27 19:21:21'),
+('2024727192112675', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-27 19:21:24', '2024-08-27 19:21:21'),
+('2024727201322149', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-08-27 20:13:55', '2024-08-27 20:13:47'),
+('2024727201322149', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 2, 0, 'USER-20230530070523-275000', '2024-08-27 20:13:55', '2024-08-27 20:13:47'),
+('2024728115151608', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-28 11:52:08', '2024-08-28 11:52:08'),
+('2024728115151608', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-28 11:52:08', '2024-08-28 11:52:08'),
+('2024729183944856', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-08-29 18:39:58', '2024-08-29 18:39:53'),
+('2024729183944856', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-08-29 18:39:58', '2024-08-29 18:39:53'),
+('2024729183944856', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-08-29 18:39:58', '2024-08-29 18:39:53'),
+('2024729183944856', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-08-29 18:39:58', '2024-08-29 18:39:53'),
+('2024729183944856', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-08-29 18:39:58', '2024-08-29 18:39:53'),
+('202481210331628', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:33:23', '2024-09-12 03:33:23'),
+('202481210331628', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:33:23', '2024-09-12 03:33:23'),
+('202481210331628', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:33:23', '2024-09-12 03:33:23'),
+('2024812103410290', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:34:18', '2024-09-12 03:34:18'),
+('2024812103410290', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:34:18', '2024-09-12 03:34:18'),
+('2024812103410290', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:34:18', '2024-09-12 03:34:18'),
+('2024812103719144', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:37:27', '2024-09-12 03:37:26'),
+('2024812103719144', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:37:27', '2024-09-12 03:37:26'),
+('2024812104421635', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:44:31', '2024-09-12 03:44:31'),
+('2024812104421635', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:44:31', '2024-09-12 03:44:31'),
+('2024812104421635', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:44:31', '2024-09-12 03:44:31'),
+('2024812104541258', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:45:50', '2024-09-12 03:45:50'),
+('2024812104541258', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:45:50', '2024-09-12 03:45:50'),
+('2024812104541258', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:45:50', '2024-09-12 03:45:50'),
+('2024812104553346', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:46:05', '2024-09-12 03:46:05'),
+('2024812104553346', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:46:05', '2024-09-12 03:46:05'),
+('2024812104553346', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:46:05', '2024-09-12 03:46:05'),
+('202481210484281', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:48:14', '2024-09-12 03:48:14'),
+('202481210484281', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 10:48:14', '2024-09-12 03:48:14'),
+('20248121112496', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:12:13', '2024-09-12 04:12:12'),
+('20248121112496', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 2, 0, 'USER-20230530070523-275000', '2024-09-12 11:12:13', '2024-09-12 04:12:12'),
+('20248121112496', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:12:13', '2024-09-12 04:12:12'),
+('2024812115352882', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:54:01', '2024-09-12 04:54:01'),
+('2024812115352882', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:54:01', '2024-09-12 04:54:01'),
+('2024812115352882', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:54:01', '2024-09-12 04:54:01'),
+('2024812115537383', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:55:46', '2024-09-12 04:55:46'),
+('2024812115537383', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:55:46', '2024-09-12 04:55:46'),
+('2024812115549366', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:55:57', '2024-09-12 04:55:57'),
+('2024812115549366', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:55:57', '2024-09-12 04:55:57'),
+('2024812115549366', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 11:55:57', '2024-09-12 04:55:57'),
+('2024812121333403', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:13:45', '2024-09-12 05:13:44'),
+('2024812121333403', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:13:45', '2024-09-12 05:13:44'),
+('2024812121333403', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:13:45', '2024-09-12 05:13:44'),
+('2024812121515826', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:15:26', '2024-09-12 05:15:25'),
+('2024812121515826', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:15:26', '2024-09-12 05:15:25'),
+('2024812121515826', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:15:26', '2024-09-12 05:15:25'),
+('202481212202388', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:20:11', '2024-09-12 05:20:10'),
+('202481212202388', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:20:11', '2024-09-12 05:20:10'),
+('202481212216407', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:02:27', '2024-09-12 05:02:26'),
+('202481212216407', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:02:27', '2024-09-12 05:02:26'),
+('202481212216407', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:02:27', '2024-09-12 05:02:26'),
+('202481212216407', 'BRG-20240627150605-856000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:02:27', '2024-09-12 05:02:26'),
+('202481212943234', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:09:57', '2024-09-12 05:09:56'),
+('202481212943234', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:09:57', '2024-09-12 05:09:56'),
+('202481212943234', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-12 12:09:57', '2024-09-12 05:09:56'),
+('202484113039783', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-04 11:30:51', '2024-09-04 11:30:54'),
+('202484113039783', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-04 11:30:51', '2024-09-04 11:30:54'),
+('202484113039783', 'BRG-20230530090530-804000', '', 'KOP-20230530070538-851000', 7500, 1, 0, 'USER-20230530070523-275000', '2024-09-04 11:30:51', '2024-09-04 11:30:54'),
+('202486103410536', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 10:34:21', '2024-09-06 10:34:23'),
+('202486103410536', 'BRG-20240819090825-041000', '123', 'KOP-20230530070538-851000', 150, 1, 0, 'USER-20230530070523-275000', '2024-09-06 10:34:21', '2024-09-06 10:34:23'),
+('202486103428902', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 10:34:47', '2024-09-06 10:34:46'),
+('202486103428902', 'BRG-20240819090825-041000', '123', 'KOP-20230530070538-851000', 150, 1, 0, 'USER-20230530070523-275000', '2024-09-06 10:34:47', '2024-09-06 10:34:46'),
+('202486111533208', 'BRG-20230612100611-647000', '', 'KOP-20230530070538-851000', 3000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:15:40', '2024-09-06 11:15:39'),
+('202486111533208', 'BRG-20230612100658-138000', '', 'KOP-20230530070538-851000', 10000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:15:40', '2024-09-06 11:15:39'),
+('202486113244680', 'BRG-20230530090518-750000', '', 'KOP-20230530070538-851000', 25000, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:33:12', '2024-09-06 11:33:11'),
+('202486113244680', 'BRG-20230530090530-339000', '', 'KOP-20230530070538-851000', 4500, 1, 0, 'USER-20230530070523-275000', '2024-09-06 11:33:12', '2024-09-06 11:33:11');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_pos_master`
+-- Struktur dari tabel `tr_pos_master`
 --
 
 CREATE TABLE `tr_pos_master` (
+  `id` int(11) NOT NULL,
+  `external_id` varchar(50) DEFAULT NULL,
   `pos_id` varchar(50) NOT NULL DEFAULT '',
   `kop_id` varchar(50) NOT NULL DEFAULT '',
   `no_anggota` varchar(50) NOT NULL DEFAULT '',
@@ -3741,23 +3911,50 @@ CREATE TABLE `tr_pos_master` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_pos_master`
+-- Dumping data untuk tabel `tr_pos_master`
 --
 
-INSERT INTO `tr_pos_master` (`pos_id`, `kop_id`, `no_anggota`, `toko_id`, `nama_customer`, `noAntrian`, `noMeja`, `amount`, `ppn`, `discount`, `real_amount`, `dibayar`, `kembalian`, `total_item`, `tipe_bayar`, `ket`, `sts`, `appYn`, `verify`, `userVerify`, `dateVerify`, `userIns`, `dateIns`, `dateServer`) VALUES
-('POS-20240628110610-012000', 'KOP-20230530070538-851000', 'USER-20240627140622-291000', 'TOK-20230602130645-781000', '', 1, 1, 15000, 0, 0, 15000, 15000, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20240627140622-291000', '2024-06-28 11:23:09', '2024-06-28 11:23:10'),
-('POS-20240628110610-193000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 1, 1, 17500, 0, 0, 17500, 20000, 2500, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-06-28 11:22:09', '2024-06-28 11:22:10'),
-('POS-20240628110621-551000', 'KOP-20230530070538-851000', 'USER-20240627140622-291000', 'TOK-20230602130645-781000', 'rahmat', 2, 1, 15000, 0, 0, 15000, 20000, 5000, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20240627140622-291000', '2024-06-28 11:24:21', '2024-06-28 11:24:21'),
-('POS-20240814070809-650000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 2, 1, 13000, 0, 0, 13000, 13000, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-14 14:46:10', '2024-08-14 14:46:09'),
-('POS-20240814070821-258000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 1, 1, 13000, 0, 0, 13000, 13000, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-14 14:44:22', '2024-08-14 14:44:21'),
-('POS-20240814070822-533000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 3, 1, 13000, 0, 0, 13000, 13000, 0, 2, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-14 14:46:23', '2024-08-14 14:46:22'),
-('POS-20240814070833-926000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 4, 1, 13000, 0, 0, 13000, 13000, 0, 2, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-14 14:48:35', '2024-08-14 14:48:33'),
-('POS-20240814080833-452000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 5, 1, 39000, 0, 0, 39000, 39000, 0, 6, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-14 15:28:34', '2024-08-14 15:28:33');
+INSERT INTO `tr_pos_master` (`id`, `external_id`, `pos_id`, `kop_id`, `no_anggota`, `toko_id`, `nama_customer`, `noAntrian`, `noMeja`, `amount`, `ppn`, `discount`, `real_amount`, `dibayar`, `kembalian`, `total_item`, `tipe_bayar`, `ket`, `sts`, `appYn`, `verify`, `userVerify`, `dateVerify`, `userIns`, `dateIns`, `dateServer`) VALUES
+(1, NULL, 'POS-20240628110610-012000', 'KOP-20230530070538-851000', 'USER-20240627140622-291000', 'TOK-20230602130645-781000', '', 1, 1, 15000, 0, 0, 15000, 15000, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20240627140622-291000', '2024-06-28 11:23:09', '2024-06-28 11:23:10'),
+(2, NULL, 'POS-20240628110610-193000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 1, 1, 17500, 0, 0, 17500, 20000, 2500, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-06-28 11:22:09', '2024-06-28 11:22:10'),
+(3, NULL, 'POS-20240628110621-551000', 'KOP-20230530070538-851000', 'USER-20240627140622-291000', 'TOK-20230602130645-781000', 'rahmat', 2, 1, 15000, 0, 0, 15000, 20000, 5000, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20240627140622-291000', '2024-06-28 11:24:21', '2024-06-28 11:24:21'),
+(4, NULL, 'POS-20240814070809-650000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 2, 1, 13000, 0, 0, 13000, 13000, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-14 14:46:10', '2024-08-14 14:46:09'),
+(5, NULL, 'POS-20240814070821-258000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 1, 1, 13000, 0, 0, 13000, 13000, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-14 14:44:22', '2024-08-14 14:44:21'),
+(6, NULL, 'POS-20240814070822-533000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 3, 1, 13000, 0, 0, 13000, 13000, 0, 2, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-14 14:46:23', '2024-08-14 14:46:22'),
+(7, NULL, 'POS-20240814070833-926000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 4, 1, 13000, 0, 0, 13000, 13000, 0, 2, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-14 14:48:35', '2024-08-14 14:48:33'),
+(8, NULL, 'POS-20240814080833-452000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 5, 1, 39000, 0, 0, 39000, 39000, 0, 6, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-14 15:28:34', '2024-08-14 15:28:33'),
+(9, NULL, 'POS-20240824020814-395000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 1, 1, 20500, 0, 0, 20500, 20500, 0, 3, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-24 09:57:33', '2024-08-24 09:57:14'),
+(10, NULL, 'POS-20240824030800-981000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 2, 1, 13000, 0, 0, 13000, 13000, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-24 10:00:20', '2024-08-24 10:00:00'),
+(11, NULL, 'POS-20240827120821-931000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 1, 1, 28000, 0, 0, 28000, 28000, 0, 4, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-27 19:21:24', '2024-08-27 19:21:21'),
+(12, NULL, 'POS-20240827130847-231000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 2, 1, 19500, 0, 0, 19500, 19500, 0, 3, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-27 20:13:55', '2024-08-27 20:13:47'),
+(13, NULL, 'POS-20240828040808-636000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', 'Jaka', 1, 1, 17500, 0, 0, 17500, 17500, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-28 11:52:08', '2024-08-28 11:52:08'),
+(14, NULL, 'POS-20240829110853-787000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 1, 1, 50000, 0, 0, 50000, 50000, 0, 5, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-08-29 18:39:58', '2024-08-29 18:39:53'),
+(15, NULL, 'POS-20240904040954-333000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 1, 1, 37000, 0, 0, 37000, 37000, 0, 3, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-04 11:30:51', '2024-09-04 11:30:54'),
+(16, NULL, 'POS-20240906030923-639000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 1, 1, 10150, 0, 0, 10150, 10150, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-06 10:34:21', '2024-09-06 10:34:23'),
+(17, NULL, 'POS-20240906030946-982000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 2, 1, 10150, 0, 0, 10150, 10150, 0, 2, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-06 10:34:47', '2024-09-06 10:34:46'),
+(18, NULL, 'POS-20240906040912-031000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 4, 1, 29500, 0, 0, 29500, 29500, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-06 11:33:12', '2024-09-06 11:33:12'),
+(19, NULL, 'POS-20240906040939-324000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'TOK-20230530090501-280000', '', 3, 1, 13000, 0, 0, 13000, 13000, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-06 11:15:40', '2024-09-06 11:15:39'),
+(20, NULL, 'POS-20240912030905-874000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 6, 1, 37000, 0, 0, 37000, 37000, 0, 3, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 10:46:05', '2024-09-12 03:46:05'),
+(21, NULL, 'POS-20240912030914-471000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 7, 1, 10500, 0, 0, 10500, 10500, 0, 2, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 10:48:14', '2024-09-12 03:48:14'),
+(22, NULL, 'POS-20240912030918-885000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 2, 1, 32500, 0, 0, 32500, 32500, 0, 3, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 10:34:18', '2024-09-12 03:34:18'),
+(23, NULL, 'POS-20240912030923-514000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 1, 1, 20500, 0, 0, 20500, 20500, 0, 3, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 10:33:23', '2024-09-12 03:33:23'),
+(24, NULL, 'POS-20240912030926-950000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 3, 1, 12000, 0, 0, 12000, 12000, 0, 2, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 10:37:27', '2024-09-12 03:37:26'),
+(25, NULL, 'POS-20240912030931-131000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 4, 1, 22000, 0, 0, 22000, 22000, 0, 3, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 10:44:31', '2024-09-12 03:44:31'),
+(26, NULL, 'POS-20240912030950-283000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 5, 1, 15000, 0, 0, 15000, 15000, 0, 3, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 10:45:50', '2024-09-12 03:45:50'),
+(27, NULL, 'POS-20240912040912-904000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 8, 1, 44000, 0, 0, 44000, 44000, 0, 4, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 11:12:13', '2024-09-12 04:12:12'),
+(28, NULL, 'POS-20240912040901-524000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 9, 1, 22000, 0, 0, 22000, 22000, 0, 3, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 11:54:01', '2024-09-12 04:54:01'),
+(29, NULL, 'POS-20240912040946-327000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 10, 1, 29500, 0, 0, 29500, 29500, 0, 2, '000002', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 11:55:46', '2024-09-12 04:55:46'),
+(30, 'invoice-1726116958483', 'POS-20240912040957-026000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 11, 1, 18000, 0, 0, 18000, 18000, 0, 3, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 11:55:57', '2024-09-12 04:55:57'),
+(31, 'invoice-1726117347318', 'POS-20240912050926-853000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 12, 1, 22500, 0, 0, 22500, 22500, 0, 4, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 12:02:27', '2024-09-12 05:02:26'),
+(32, 'invoice-1726117797393', 'POS-20240912050956-918000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 13, 1, 35500, 0, 0, 35500, 35500, 0, 3, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 12:09:57', '2024-09-12 05:09:56'),
+(33, 'invoice-1726118025019', 'POS-20240912050944-654000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 14, 1, 20500, 0, 0, 20500, 20500, 0, 3, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 12:13:45', '2024-09-12 05:13:44'),
+(34, 'invoice-1726118126029', 'POS-20240912050925-597000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 15, 1, 37000, 0, 0, 37000, 37000, 0, 3, '000007', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 12:15:26', '2024-09-12 05:15:25'),
+(35, NULL, 'POS-20240912050910-598000', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', 16, 1, 29500, 0, 0, 29500, 29500, 0, 2, '000001', '', 'SUCCESS', 'UNAPPROVE', 'UNVERIFY', '', NULL, 'USER-20230530070523-275000', '2024-09-12 12:20:11', '2024-09-12 05:20:10');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_pos_mobile_detail`
+-- Struktur dari tabel `tr_pos_mobile_detail`
 --
 
 CREATE TABLE `tr_pos_mobile_detail` (
@@ -3774,7 +3971,7 @@ CREATE TABLE `tr_pos_mobile_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_pos_mobile_detail`
+-- Dumping data untuk tabel `tr_pos_mobile_detail`
 --
 
 INSERT INTO `tr_pos_mobile_detail` (`pos_id`, `kode_barang`, `no_anggota`, `kop_id`, `harga`, `qty`, `ppn`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3784,7 +3981,7 @@ INSERT INTO `tr_pos_mobile_detail` (`pos_id`, `kode_barang`, `no_anggota`, `kop_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_pos_mobile_master`
+-- Struktur dari tabel `tr_pos_mobile_master`
 --
 
 CREATE TABLE `tr_pos_mobile_master` (
@@ -3813,7 +4010,7 @@ CREATE TABLE `tr_pos_mobile_master` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_pos_mobile_master`
+-- Dumping data untuk tabel `tr_pos_mobile_master`
 --
 
 INSERT INTO `tr_pos_mobile_master` (`pos_id`, `kop_id`, `toko_id`, `no_anggota`, `nama_customer`, `amount`, `ppn`, `discount`, `real_amount`, `dibayar`, `kembalian`, `total_item`, `tipe_bayar`, `ket`, `sts`, `appYn`, `verify`, `userVerify`, `dateVerify`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3822,7 +4019,7 @@ INSERT INTO `tr_pos_mobile_master` (`pos_id`, `kop_id`, `toko_id`, `no_anggota`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_po_detail`
+-- Struktur dari tabel `tr_po_detail`
 --
 
 CREATE TABLE `tr_po_detail` (
@@ -3839,7 +4036,7 @@ CREATE TABLE `tr_po_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_po_detail`
+-- Dumping data untuk tabel `tr_po_detail`
 --
 
 INSERT INTO `tr_po_detail` (`kop_id`, `po_no`, `po_seq`, `kode_barang`, `harga_barang`, `jumlah_barang`, `satuan_barang`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3858,7 +4055,7 @@ INSERT INTO `tr_po_detail` (`kop_id`, `po_no`, `po_seq`, `kode_barang`, `harga_b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_po_master`
+-- Struktur dari tabel `tr_po_master`
 --
 
 CREATE TABLE `tr_po_master` (
@@ -3872,7 +4069,7 @@ CREATE TABLE `tr_po_master` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_po_master`
+-- Dumping data untuk tabel `tr_po_master`
 --
 
 INSERT INTO `tr_po_master` (`kop_id`, `no_po`, `suplier_no`, `tgl_po`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3886,7 +4083,7 @@ INSERT INTO `tr_po_master` (`kop_id`, `no_po`, `suplier_no`, `tgl_po`, `userIns`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_ppob_detail`
+-- Struktur dari tabel `tr_ppob_detail`
 --
 
 CREATE TABLE `tr_ppob_detail` (
@@ -3903,7 +4100,7 @@ CREATE TABLE `tr_ppob_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_ppob_detail`
+-- Dumping data untuk tabel `tr_ppob_detail`
 --
 
 INSERT INTO `tr_ppob_detail` (`ppob_id`, `productCode`, `no_anggota`, `kop_id`, `account`, `paramName`, `paramValue`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -3975,12 +4172,20 @@ INSERT INTO `tr_ppob_detail` (`ppob_id`, `productCode`, `no_anggota`, `kop_id`, 
 ('PPOB-20245261191393', 'PLN_PREPAID', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit62;bit42;bit41;bit32', '360;JTL53L3142345678955144444444440341E4D76CE15D62733B8CD9AED1108480007210Z4DA6391C3EEDC82C9385CF74INDAH PUTRI              I3  000054321;0626110848;240626110848;00;380000;110848;000000020000;0626;053502;110848;0210;6021;;0627;5151106021222222      060000;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-06-26 11:09:14', '2024-06-26 11:09:14'),
 ('PPOB-2024527105353748', 'PLN_POSTPAID', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit42;bit41;bit32', '360;534316522301100E4813831A81E0AB569D308E49E38BE8AXQWRFDAXXXXXADMNONA UAT1534310264-270817      R10000004500000000002016022003201600000000000000019220D00000000000000000000000000003000004703000047570000000000000000000000000000000000;0627105344;240627105344;00;380000;105344;000000022220;0627;053501;105344;0210;6021;;0628;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-06-27 10:53:55', '2024-06-27 10:53:55'),
 ('PPOB-2024527131015897', 'PLN_PREPAID', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit62;bit42;bit41;bit32', '360;JTL53L314234567895514444444444093F548BDD1D6691D65C51A78A81310020007210Z3AF7CA1D70720CB004BEE205INDAH PUTRI              I3  000054321;0627131002;240627131002;00;380000;131002;000000020000;0627;053502;131002;0210;6021;;0628;5151106021222222      060000;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-06-27 13:10:17', '2024-06-27 13:10:17'),
-('PPOB-2024527131038128', 'PLN_NONTAGLIST', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit42;bit41;bit32', '360;5200112005488PENYAMBUNGAN BARU        2019041313052019            N~!@#$^*}?`&+ NONAA UAT019B28EF0F19C8F5B0E4AC8670BA9C96880007210Z365AAC8B501D00000000039050000000000000390500000000000000;0627131027;240627131027;00;380000;131027;000000390500;0627;053504;131027;0210;6021;52001 JL. AGIL KUSUMADYA NO.102         123            0000000000000000000;0628;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-06-27 13:10:39', '2024-06-27 13:10:39');
+('PPOB-2024527131038128', 'PLN_NONTAGLIST', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit42;bit41;bit32', '360;5200112005488PENYAMBUNGAN BARU        2019041313052019            N~!@#$^*}?`&+ NONAA UAT019B28EF0F19C8F5B0E4AC8670BA9C96880007210Z365AAC8B501D00000000039050000000000000390500000000000000;0627131027;240627131027;00;380000;131027;000000390500;0627;053504;131027;0210;6021;52001 JL. AGIL KUSUMADYA NO.102         123            0000000000000000000;0628;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-06-27 13:10:39', '2024-06-27 13:10:39'),
+('PPOB-20247271936063', 'PLN_PREPAID', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit62;bit42;bit41;bit32', '360;JTL53L3142345678955144444444440F19139641EC9D5D25F14784AF91935480007210ZD2CED4CE676AFC6F1356120FINDAH PUTRI              I3  000054321;0827193548;240827193548;00;380000;193548;000000020000;0827;053502;193548;0210;6021;;0828;5151106021222222      060000;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-08-27 12:35:58', '2024-08-27 12:35:58'),
+('PPOB-2024728115840371', 'PLN_PREPAID', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit62;bit42;bit41;bit32', '360;JTL53L31423456789551444444444400DA17AC6B50125E90F715C52801158350007210Z2876C4C94876BD2A4A905033INDAH PUTRI              I3  000054321;0828115835;240828115835;00;380000;115835;000000020000;0828;053502;115835;0210;6021;;0829;5151106021222222      060000;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-08-28 04:58:41', '2024-08-28 04:58:41'),
+('PPOB-2024728115920507', 'PLN_PREPAID', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit62;bit42;bit41;bit32', '360;JTL53L31423456789551444444444407408E796AE55F312D1E94A3D361159160007210Z136E2BEB7AFAA1EB409B4522INDAH PUTRI              I3  000054321;0828115916;240828115916;00;380000;115916;000000020000;0828;053502;115916;0210;6021;;0829;5151106021222222      060000;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-08-28 04:59:21', '2024-08-28 04:59:21'),
+('PPOB-20247281202942', 'PLN_POSTPAID', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit42;bit41;bit32', '360;534316522301100D328A563FAE40E8F74587C208FDCA58EXQWRFDAXXXXXADMNONA UAT1534310264-270817      R10000004500000000002016022003201600000000000000019220D00000000000000000000000000003000004703000047570000000000000000000000000000000000;0828120023;240828120023;00;380000;120023;000000022220;0828;053501;120023;0210;6021;;0829;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-08-28 05:00:30', '2024-08-28 05:00:30'),
+('PPOB-202472812045811', 'PLN_NONTAGLIST', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit42;bit41;bit32', '360;5200112005488PENYAMBUNGAN BARU        2019041313052019            N~!@#$^*}?`&+ NONAA UAT018348FA8980254D764D28CE18CDF75B790007210Z8DA41FD0D80200000000039050000000000000390500000000000000;0828120038;240828120038;00;380000;120038;000000390500;0828;053504;120038;0210;6021;52001 JL. AGIL KUSUMADYA NO.102         123            0000000000000000000;0829;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-08-28 05:00:46', '2024-08-28 05:00:46'),
+('PPOB-202472812120225', 'PLN_PREPAID', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit62;bit42;bit41;bit32', '360;JTL53L3142345678955144444444440FDB844FE89965300C47483CFD11200530007210ZE8581841BE12BA442AEB961BINDAH PUTRI              I3  000054321;0828120053;240828120053;00;380000;120053;000000020000;0828;053502;120053;0210;6021;;0829;5151106021222222      060000;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-08-28 05:01:21', '2024-08-28 05:01:21'),
+('PPOB-20247281257586', 'PLN_PREPAID', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit62;bit42;bit41;bit32', '360;JTL53L31423456789551444444444404C6F6A87D84D791DECEE3291FF1204550007210Z0E4219052BFEE2C0EECE963AINDAH PUTRI              I3  000054321;0828120455;240828120455;00;380000;120455;000000020000;0828;053502;120455;0210;6021;;0829;5151106021222222      060000;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-08-28 05:05:08', '2024-08-28 05:05:08'),
+('PPOB-2024812162522320', 'PLN_PREPAID', 'USER-20230530070523-275000', 'KOP-20230530070538-851000', '', 'bit49;bit48;bit7;bit37;bit39;bit3;bit12;bit4;bit13;bit2;bit11;mti;bit18;bit63;bit15;bit62;bit42;bit41;bit32', '360;JTL53L31423456789551444444444403835FEC71ADDC258385E70F2101625150007210Z40DD391C958F913544D4D4F7INDAH PUTRI              I3  000054321;0912162515;240912162515;00;380000;162515;000000020000;0912;053502;162515;0210;6021;;0913;5151106021222222      060000;200900100800000;DEVATS01;008', 'USER-20230530070523-275000', '2024-09-12 09:25:21', '2024-09-12 09:25:21');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_ppob_inq`
+-- Struktur dari tabel `tr_ppob_inq`
 --
 
 CREATE TABLE `tr_ppob_inq` (
@@ -4002,7 +4207,7 @@ CREATE TABLE `tr_ppob_inq` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_ppob_inq`
+-- Dumping data untuk tabel `tr_ppob_inq`
 --
 
 INSERT INTO `tr_ppob_inq` (`ppob_id`, `kop_id`, `no_anggota`, `ket`, `sts`, `apiRequest`, `apiProvider`, `apiStsProvider`, `appYn`, `verify`, `userVerify`, `dateVerify`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -4205,12 +4410,19 @@ INSERT INTO `tr_ppob_inq` (`ppob_id`, `kop_id`, `no_anggota`, `ket`, `sts`, `api
 ('MULTI-20246199484737', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"274032\",\"bit3\":\"380000\",\"bit7\":\"0719024847\",\"bit11\":653721,\"bit12\":\"024847\",\"bit13\":\"0719\",\"bit15\":\"0720\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"10100149\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-07-19 09:48:47', '2024-07-19 09:48:47'),
 ('MULTI-2024649613308', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"074001\",\"bit3\":\"380000\",\"bit7\":\"0704020613\",\"bit11\":646362,\"bit12\":\"020613\",\"bit13\":\"0704\",\"bit15\":\"0705\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"00000111\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-07-04 09:06:13', '2024-07-04 09:06:13'),
 ('MULTI-2024649618427', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"074011\",\"bit3\":\"380000\",\"bit7\":\"0704020618\",\"bit11\":64155,\"bit12\":\"020618\",\"bit13\":\"0704\",\"bit15\":\"0705\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"00000111\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-07-04 09:06:18', '2024-07-04 09:06:18'),
-('MULTI-202465135134813', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"074011\",\"bit3\":\"380000\",\"bit7\":\"0705065135\",\"bit11\":322664,\"bit12\":\"065135\",\"bit13\":\"0705\",\"bit15\":\"0706\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"00000111\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-07-05 13:51:35', '2024-07-05 13:51:35');
+('MULTI-202465135134813', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"074011\",\"bit3\":\"380000\",\"bit7\":\"0705065135\",\"bit11\":322664,\"bit12\":\"065135\",\"bit13\":\"0705\",\"bit15\":\"0706\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"00000111\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-07-05 13:51:35', '2024-07-05 13:51:35'),
+('MULTI-202472918444990', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"074001\",\"bit3\":\"380000\",\"bit7\":\"0829114444\",\"bit11\":48969,\"bit12\":\"114444\",\"bit13\":\"0829\",\"bit15\":\"0830\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"00000111\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-29 11:44:44', '2024-08-29 11:44:44'),
+('MULTI-2024729184514258', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"074004\",\"bit3\":\"380000\",\"bit7\":\"0829114509\",\"bit11\":462181,\"bit12\":\"114509\",\"bit13\":\"0829\",\"bit15\":\"0830\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"00000111\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-29 11:45:09', '2024-08-29 11:45:09'),
+('MULTI-2024729184528385', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"174001\",\"bit3\":\"380000\",\"bit7\":\"0829114523\",\"bit11\":117516,\"bit12\":\"114523\",\"bit13\":\"0829\",\"bit15\":\"0830\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"00000111\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-29 11:45:23', '2024-08-29 11:45:23'),
+('MULTI-20247291845434', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"074002\",\"bit3\":\"380000\",\"bit7\":\"0829114459\",\"bit11\":8954,\"bit12\":\"114459\",\"bit13\":\"0829\",\"bit15\":\"0830\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"00000111\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-29 11:44:59', '2024-08-29 11:44:59'),
+('MULTI-2024729184549841', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"274002\",\"bit3\":\"380000\",\"bit7\":\"0829114545\",\"bit11\":783857,\"bit12\":\"114545\",\"bit13\":\"0829\",\"bit15\":\"0830\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"00000111\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-29 11:45:45', '2024-08-29 11:45:45'),
+('MULTI-2024729184557658', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"064002\",\"bit3\":\"380000\",\"bit7\":\"0829114553\",\"bit11\":209117,\"bit12\":\"114553\",\"bit13\":\"0829\",\"bit15\":\"0830\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"081219991500\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-29 11:45:53', '2024-08-29 11:45:53'),
+('MULTI-202472918458642', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', '', '', '{\"mti\":\"0200\",\"bit2\":\"074019\",\"bit3\":\"380000\",\"bit7\":\"0829114504\",\"bit11\":773955,\"bit12\":\"114504\",\"bit13\":\"0829\",\"bit15\":\"0830\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"000000114415\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"00000111\",\"bit49\":\"360\"}', 'FELLO', 'INQ', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-29 11:45:04', '2024-08-29 11:45:04');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_ppob_master`
+-- Struktur dari tabel `tr_ppob_master`
 --
 
 CREATE TABLE `tr_ppob_master` (
@@ -4250,7 +4462,7 @@ CREATE TABLE `tr_ppob_master` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_ppob_master`
+-- Dumping data untuk tabel `tr_ppob_master`
 --
 
 INSERT INTO `tr_ppob_master` (`ppob_id`, `kop_id`, `no_anggota`, `productCode`, `nominal`, `price`, `serviceFee`, `requestId`, `account`, `transactionId`, `time_`, `amount`, `refId`, `currency`, `ppn`, `discount`, `real_amount`, `dibayar`, `kembalian`, `total_item`, `tipe_bayar`, `ket`, `sts`, `apiRequest`, `apiProvider`, `apiStsProvider`, `appYn`, `verify`, `userVerify`, `dateVerify`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -4329,12 +4541,32 @@ INSERT INTO `tr_ppob_master` (`ppob_id`, `kop_id`, `no_anggota`, `productCode`, 
 ('PPOB-2024527131015897', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0627131002\",\"bit11\":\"131002\",\"bit12\":\"131002\",\"bit13\":\"0627\",\"bit15\":\"0628\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240627131002\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L314234567895514444444444093F548BDD1D6691D65C51A78A81310020007210Z3AF7CA1D70720CB004BEE205INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'SUCCESS', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-06-27 13:10:16', '2024-06-27 13:10:16'),
 ('PPOB-2024527131038128', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_NONTAGLIST', 0, 390500, 0, '', '5200112005488', '', '', 390500, '', '', 0, 0, 390500, 400000, 9500, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053504\",\"bit3\":\"170000\",\"bit4\":\"000000390500\",\"bit7\":\"0627131027\",\"bit11\":\"131027\",\"bit12\":\"131027\",\"bit13\":\"0627\",\"bit15\":\"0628\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240627131027\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"5200112005488PENYAMBUNGAN BARU        2019041313052019            N~!@#$^*}?`&+ NONAA UAT019B28EF0F19C8F5B0E4AC8670BA9C96880007210Z365AAC8B501D00000000039050000000000000390500000000000000\",\"bit49\":\"360\",\"bit63\":\"52001 JL. AGIL KUSUMADYA NO.102         123            0000000000000000000\"}', 'FELLO', 'SUCCESS', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-06-27 13:10:38', '2024-06-27 13:10:38'),
 ('PPOB-202452782544616', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0627082533\",\"bit11\":\"082533\",\"bit12\":\"082533\",\"bit13\":\"0627\",\"bit15\":\"0628\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240627082533\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L31423456789551444444444404C624908EA2BFC0532F0F84EDC0825330007210Z013145F68C3619C607976EF4INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-06-27 08:25:45', '2024-06-27 08:25:45'),
-('PPOB-202452782552366', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0627082533\",\"bit11\":\"082533\",\"bit12\":\"082533\",\"bit13\":\"0627\",\"bit15\":\"0628\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240627082533\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L31423456789551444444444404C624908EA2BFC0532F0F84EDC0825330007210Z013145F68C3619C607976EF4INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-06-27 08:25:52', '2024-06-27 08:25:52');
+('PPOB-202452782552366', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0627082533\",\"bit11\":\"082533\",\"bit12\":\"082533\",\"bit13\":\"0627\",\"bit15\":\"0628\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240627082533\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L31423456789551444444444404C624908EA2BFC0532F0F84EDC0825330007210Z013145F68C3619C607976EF4INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-06-27 08:25:52', '2024-06-27 08:25:52'),
+('PPOB-2024727192454265', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0827192447\",\"bit11\":\"192447\",\"bit12\":\"192447\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827192447\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L314234567895514444444444063ED8C0C9D5DFCAC04766A75A11924470007210Z874683667AF0B4582F958E12INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 12:24:52', '2024-08-27 12:24:52'),
+('PPOB-202472719252633', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0827192447\",\"bit11\":\"192447\",\"bit12\":\"192447\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827192447\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L314234567895514444444444063ED8C0C9D5DFCAC04766A75A11924470007210Z874683667AF0B4582F958E12INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 12:25:00', '2024-08-27 12:25:00'),
+('PPOB-2024727192535169', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 50000, 0, '', '14234567895', '', '', 50000, '', '', 0, 0, 50000, 50000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000050000\",\"bit7\":\"0827192529\",\"bit11\":\"192529\",\"bit12\":\"192529\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827192529\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L314234567895514444444444095EB1CCF75B4A637F08F17C4151925290007210ZF4D05FC2369943CBB8CBE674INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 12:25:33', '2024-08-27 12:25:33'),
+('PPOB-2024727192725616', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_POSTPAID', 0, 301623, 0, '', '543400365702', '', '', 301623, '', '', 0, 0, 301623, 301623, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"054501\",\"bit3\":\"170000\",\"bit4\":\"000000301623\",\"bit7\":\"0827192716\",\"bit11\":\"192716\",\"bit12\":\"192716\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827192716\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"543400365702100AC0B7944C1A6B789E21522A911B80DEEABDUL CHARISS            54380123              R10000010000000000002021122004201600000000000000298623D00000000000000000000000000003000018092000182620000000000000000000000000000000000\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 12:27:23', '2024-08-27 12:27:23'),
+('PPOB-202472719323456', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0827193208\",\"bit11\":\"193208\",\"bit12\":\"193208\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827193208\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L3142345678955144444444440CF71A42F129F130873B6B1007D1932080007210Z417D3D4E14FEEB0CD801657EINDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 12:32:31', '2024-08-27 12:32:31'),
+('PPOB-2024727193452735', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '20247271933315851724762012', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000003', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0827193208\",\"bit11\":\"193208\",\"bit12\":\"193208\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827193208\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L3142345678955144444444440CF71A42F129F130873B6B1007D1932080007210Z417D3D4E14FEEB0CD801657EINDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 12:34:50', '2024-08-27 12:34:50'),
+('PPOB-20247271936063', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0827193548\",\"bit11\":\"193548\",\"bit12\":\"193548\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827193548\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L3142345678955144444444440F19139641EC9D5D25F14784AF91935480007210ZD2CED4CE676AFC6F1356120FINDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'SUCCESS', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 12:35:57', '2024-08-27 12:35:57'),
+('PPOB-2024727193742927', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0827193727\",\"bit11\":\"193727\",\"bit12\":\"193727\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827193727\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L314234567895514444444444094A21F83B31C297551FAB28B701937270007210Z42B4F2E2039267AC36099244INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 12:37:40', '2024-08-27 12:37:40'),
+('PPOB-2024727194250749', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 50000, 0, '', '14234567895', '', '', 50000, '', '', 0, 0, 50000, 50000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000050000\",\"bit7\":\"0827194241\",\"bit11\":\"194241\",\"bit12\":\"194241\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827194241\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L3142345678955144444444440926406C0AF4E46322342C764C31942410007210Z57A06661AC572387E48C05BBINDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 12:42:48', '2024-08-27 12:42:48'),
+('PPOB-202472719427750', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_NONTAGLIST', 0, 390500, 0, '', '5200112005488', '', '', 390500, '', '', 0, 0, 390500, 390500, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053504\",\"bit3\":\"170000\",\"bit4\":\"000000390500\",\"bit7\":\"0827194200\",\"bit11\":\"194200\",\"bit12\":\"194200\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827194200\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"5200112005488PENYAMBUNGAN BARU        2019041313052019            N~!@#$^*}?`&+ NONAA UAT019EB1245D9F240009915B3224E2880F900007210Z6606ABF81BBD00000000039050000000000000390500000000000000\",\"bit49\":\"360\",\"bit63\":\"52001 JL. AGIL KUSUMADYA NO.102         123            0000000000000000000\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 12:42:05', '2024-08-27 12:42:05'),
+('PPOB-2024727201825838', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0827201755\",\"bit11\":\"201755\",\"bit12\":\"201755\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827201755\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L3142345678955144444444440EF7F54EA2B7464E98AA5E20CE82017550007210ZCD8C0A42E26257C703976B57INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 13:18:17', '2024-08-27 13:18:17'),
+('PPOB-20247272018393', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0827201755\",\"bit11\":\"201755\",\"bit12\":\"201755\",\"bit13\":\"0827\",\"bit15\":\"0828\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240827201755\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L3142345678955144444444440EF7F54EA2B7464E98AA5E20CE82017550007210ZCD8C0A42E26257C703976B57INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-27 13:17:55', '2024-08-27 13:17:55'),
+('PPOB-202472811574106', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0828115659\",\"bit11\":\"115659\",\"bit12\":\"115659\",\"bit13\":\"0828\",\"bit15\":\"0829\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240828115659\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L314234567895514444444444097C0E7E4DFB5B749D80E6534A51156590007210Z190ACEE2252015F6CB62495EINDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'OPEN', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-28 04:57:04', '2024-08-28 04:57:04'),
+('PPOB-2024728115840371', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0828115835\",\"bit11\":\"115835\",\"bit12\":\"115835\",\"bit13\":\"0828\",\"bit15\":\"0829\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240828115835\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L31423456789551444444444400DA17AC6B50125E90F715C52801158350007210Z2876C4C94876BD2A4A905033INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'SUCCESS', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-28 04:58:40', '2024-08-28 04:58:40'),
+('PPOB-2024728115920507', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0828115916\",\"bit11\":\"115916\",\"bit12\":\"115916\",\"bit13\":\"0828\",\"bit15\":\"0829\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240828115916\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L31423456789551444444444407408E796AE55F312D1E94A3D361159160007210Z136E2BEB7AFAA1EB409B4522INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'SUCCESS', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-28 04:59:20', '2024-08-28 04:59:20'),
+('PPOB-20247281202942', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_POSTPAID', 0, 22220, 0, '', '534316522301', '', '', 22220, '', '', 0, 0, 22220, 22220, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053501\",\"bit3\":\"170000\",\"bit4\":\"000000022220\",\"bit7\":\"0828120023\",\"bit11\":\"120023\",\"bit12\":\"120023\",\"bit13\":\"0828\",\"bit15\":\"0829\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240828120023\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"534316522301100D328A563FAE40E8F74587C208FDCA58EXQWRFDAX\\XXXXADMNONA UAT1534310264-270817      R10000004500000000002016022003201600000000000000019220D00000000000000000000000000003000004703000047570000000000000000000000000000000000\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'SUCCESS', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-28 05:00:29', '2024-08-28 05:00:29'),
+('PPOB-202472812045811', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_NONTAGLIST', 0, 390500, 0, '', '5200112005488', '', '', 390500, '', '', 0, 0, 390500, 390500, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053504\",\"bit3\":\"170000\",\"bit4\":\"000000390500\",\"bit7\":\"0828120038\",\"bit11\":\"120038\",\"bit12\":\"120038\",\"bit13\":\"0828\",\"bit15\":\"0829\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240828120038\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"5200112005488PENYAMBUNGAN BARU        2019041313052019            N~!@#$^*}?`&+ NONAA UAT018348FA8980254D764D28CE18CDF75B790007210Z8DA41FD0D80200000000039050000000000000390500000000000000\",\"bit49\":\"360\",\"bit63\":\"52001 JL. AGIL KUSUMADYA NO.102         123            0000000000000000000\"}', 'FELLO', 'SUCCESS', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-28 05:00:46', '2024-08-28 05:00:46'),
+('PPOB-202472812120225', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '2024728120595871724821260', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000003', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0828120053\",\"bit11\":\"120053\",\"bit12\":\"120053\",\"bit13\":\"0828\",\"bit15\":\"0829\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240828120053\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L3142345678955144444444440FDB844FE89965300C47483CFD11200530007210ZE8581841BE12BA442AEB961BINDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'SUCCESS', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-28 05:01:20', '2024-08-28 05:01:20'),
+('PPOB-20247281257586', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0828120455\",\"bit11\":\"120455\",\"bit12\":\"120455\",\"bit13\":\"0828\",\"bit15\":\"0829\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240828120455\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L31423456789551444444444404C6F6A87D84D791DECEE3291FF1204550007210Z0E4219052BFEE2C0EECE963AINDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'SUCCESS', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-08-28 05:05:07', '2024-08-28 05:05:07'),
+('PPOB-2024812162522320', 'KOP-20230530070538-851000', 'USER-20230530070523-275000', 'PLN_PREPAID', 0, 20000, 0, '', '14234567895', '', '', 20000, '', '', 0, 0, 20000, 20000, 0, 1, '000001', '', '', '{\"mti\":\"0200\",\"bit2\":\"053502\",\"bit3\":\"171000\",\"bit4\":\"000000020000\",\"bit7\":\"0912162515\",\"bit11\":\"162515\",\"bit12\":\"162515\",\"bit13\":\"0912\",\"bit15\":\"0913\",\"bit18\":\"6021\",\"bit32\":\"008\",\"bit37\":\"240912162515\",\"bit41\":\"DEVATS01\",\"bit42\":\"200900100800000\",\"bit48\":\"JTL53L31423456789551444444444403835FEC71ADDC258385E70F2101625150007210Z40DD391C958F913544D4D4F7INDAH PUTRI              I3  000054321\",\"bit49\":\"360\",\"bit63\":\"\"}', 'FELLO', 'SUCCESS', 'Y', 'N', '', NULL, 'USER-20230530070523-275000', '2024-09-12 09:25:20', '2024-09-12 09:25:20');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_ppob_mobile_detail`
+-- Struktur dari tabel `tr_ppob_mobile_detail`
 --
 
 CREATE TABLE `tr_ppob_mobile_detail` (
@@ -4351,7 +4583,7 @@ CREATE TABLE `tr_ppob_mobile_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_ppob_mobile_detail`
+-- Dumping data untuk tabel `tr_ppob_mobile_detail`
 --
 
 INSERT INTO `tr_ppob_mobile_detail` (`ppob_id`, `productCode`, `no_anggota`, `kop_id`, `account`, `paramName`, `paramValue`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -4823,7 +5055,7 @@ INSERT INTO `tr_ppob_mobile_detail` (`ppob_id`, `productCode`, `no_anggota`, `ko
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_ppob_mobile_master`
+-- Struktur dari tabel `tr_ppob_mobile_master`
 --
 
 CREATE TABLE `tr_ppob_mobile_master` (
@@ -4862,7 +5094,7 @@ CREATE TABLE `tr_ppob_mobile_master` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_ppob_mobile_master`
+-- Dumping data untuk tabel `tr_ppob_mobile_master`
 --
 
 INSERT INTO `tr_ppob_mobile_master` (`ppob_id`, `kop_id`, `no_anggota`, `productCode`, `nominal`, `price`, `serviceFee`, `requestId`, `account`, `transactionId`, `time_`, `amount`, `refId`, `currency`, `ppn`, `discount`, `real_amount`, `dibayar`, `kembalian`, `total_item`, `tipe_bayar`, `ket`, `sts`, `apiProvider`, `apiStsProvider`, `appYn`, `verify`, `userVerify`, `dateVerify`, `userIns`, `dateIns`, `dateServer`) VALUES
@@ -4960,7 +5192,7 @@ INSERT INTO `tr_ppob_mobile_master` (`ppob_id`, `kop_id`, `no_anggota`, `product
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_shu_master`
+-- Struktur dari tabel `tr_shu_master`
 --
 
 CREATE TABLE `tr_shu_master` (
@@ -4975,7 +5207,7 @@ CREATE TABLE `tr_shu_master` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tr_simpan`
+-- Struktur dari tabel `tr_simpan`
 --
 
 CREATE TABLE `tr_simpan` (
@@ -4998,7 +5230,7 @@ CREATE TABLE `tr_simpan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tr_simpan`
+-- Dumping data untuk tabel `tr_simpan`
 --
 
 INSERT INTO `tr_simpan` (`noSimpan`, `idx`, `tanggal_simpan`, `coa`, `coaDetail`, `noAgt`, `jenisSimpan`, `amount`, `appYn`, `verify`, `appDt`, `appUser`, `verifyDt`, `verifyUser`, `userIns`, `dateIns`) VALUES
@@ -5010,12 +5242,42 @@ INSERT INTO `tr_simpan` (`noSimpan`, `idx`, `tanggal_simpan`, `coa`, `coaDetail`
 ('TRSIM-20230828130858-115000', '2023728135155677', '2023-08-28 00:00:00', '000001', '', 'AGT-20230828130836-358000', '000001', 500000, 'APPROVE', 'UNVERIFY', '2023-08-28 13:52:30', 'USER-20230530070523-275000', '2023-08-28 13:52:17', '', 'USER-20230530070523-275000', '2023-08-28 13:52:17'),
 ('TRSIM-20230828140804-001000', '20237281400665', '2023-08-28 00:00:00', '000002', '', 'AGT-20230828130836-358000', '000001', 100000, 'APPROVE', 'UNVERIFY', '2023-08-28 14:00:30', 'USER-20230530070523-275000', '2023-08-28 14:00:19', '', 'USER-20230530070523-275000', '2023-08-28 14:00:19'),
 ('TRSIM-20240227130241-197000', '2024127131026721', '2024-02-27 00:00:00', '000001', '', 'AGT-20230607080643-996000', '000001', 200000, 'APPROVE', 'UNVERIFY', '2024-02-27 14:32:20', 'USER-20230530070523-275000', '2024-02-27 13:10:53', '', 'USER-20230530070523-275000', '2024-02-27 13:10:53'),
-('TRSIM-20240229100231-347000', '202412910288148', '2024-02-29 00:00:00', '000001', '', 'AGT-20230607080643-996000', '000001', 500000, 'UNAPPROVE', 'UNVERIFY', '2024-02-29 10:28:45', '', '2024-02-29 10:28:45', '', 'USER-20230530070523-275000', '2024-02-29 10:28:45');
+('TRSIM-20240229100231-347000', '202412910288148', '2024-02-29 00:00:00', '000001', '', 'AGT-20230607080643-996000', '000001', 500000, 'UNAPPROVE', 'UNVERIFY', '2024-02-29 10:28:45', '', '2024-02-29 10:28:45', '', 'USER-20230530070523-275000', '2024-02-29 10:28:45'),
+('TRSIM-20240827130821-075000', '2024727205315361', '2024-08-27 00:00:00', '000001', '', 'AGT-20230607080643-996000', '000001', 100000, 'UNAPPROVE', 'UNVERIFY', '2024-08-27 13:53:31', '', '2024-08-27 13:53:31', '', 'USER-20230530070523-275000', '2024-08-27 13:53:31'),
+('TRSIM-20240829110826-387000', '2024729184028986', '2024-08-29 00:00:00', '000001', '', 'AGT-20231003131005-849000', '000001', 100000, 'UNAPPROVE', 'UNVERIFY', '2024-08-29 11:40:47', '', '2024-08-29 11:40:47', '', 'USER-20230530070523-275000', '2024-08-29 11:40:47');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_sysmenu`
+-- Struktur dari tabel `tr_xendit`
+--
+
+CREATE TABLE `tr_xendit` (
+  `id` int(11) NOT NULL,
+  `id_invoice` varchar(100) DEFAULT NULL,
+  `user_id` varchar(100) DEFAULT NULL,
+  `external_id` varchar(100) DEFAULT NULL,
+  `payment_method` varchar(100) DEFAULT NULL,
+  `status` varchar(30) DEFAULT NULL,
+  `merchant_name` varchar(100) DEFAULT NULL,
+  `amount` int(12) DEFAULT NULL,
+  `paid_amount` int(12) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `tr_xendit`
+--
+
+INSERT INTO `tr_xendit` (`id`, `id_invoice`, `user_id`, `external_id`, `payment_method`, `status`, `merchant_name`, `amount`, `paid_amount`, `description`, `created_at`, `updated_at`) VALUES
+(7, '579c8d61f23fa4ca35e52da4', '5781d19b2e2385880609791c', 'invoice_123124123', 'BANK_TRANSFER', 'PAID', 'Xendit', 50000, 50000, 'This is a description', '2024-09-12 05:25:00', '2024-09-12 05:25:00');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user_sysmenu`
 --
 
 CREATE TABLE `user_sysmenu` (
@@ -5032,7 +5294,7 @@ CREATE TABLE `user_sysmenu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='privileges user';
 
 --
--- Dumping data for table `user_sysmenu`
+-- Dumping data untuk tabel `user_sysmenu`
 --
 
 INSERT INTO `user_sysmenu` (`userid`, `menuId`, `showYn`, `saveYn`, `editYn`, `inqYn`, `deleteYn`, `printYn`, `insUser`, `insDt`) VALUES
@@ -5982,281 +6244,303 @@ INSERT INTO `user_sysmenu` (`userid`, `menuId`, `showYn`, `saveYn`, `editYn`, `i
 --
 
 --
--- Indexes for table `mst_anggota`
+-- Indeks untuk tabel `mst_anggota`
 --
 ALTER TABLE `mst_anggota`
   ADD PRIMARY KEY (`no_koperasi`,`no_anggota`);
 
 --
--- Indexes for table `mst_anggota_temp`
+-- Indeks untuk tabel `mst_anggota_temp`
 --
 ALTER TABLE `mst_anggota_temp`
   ADD PRIMARY KEY (`no_koperasi`,`no_anggota`) USING BTREE;
 
 --
--- Indexes for table `mst_barang`
+-- Indeks untuk tabel `mst_barang`
 --
 ALTER TABLE `mst_barang`
   ADD PRIMARY KEY (`idx`,`kop_id`,`toko_id`);
 
 --
--- Indexes for table `mst_barang_rutin`
+-- Indeks untuk tabel `mst_barang_rutin`
 --
 ALTER TABLE `mst_barang_rutin`
   ADD PRIMARY KEY (`kode_barang`,`kop_id`,`toko_id`,`barcode`);
 
 --
--- Indexes for table `mst_barang_rutin_detail`
+-- Indeks untuk tabel `mst_barang_rutin_detail`
 --
 ALTER TABLE `mst_barang_rutin_detail`
   ADD PRIMARY KEY (`kode_barang`,`kop_id`,`toko_id`,`barcode`,`generate_barcode`);
 
 --
--- Indexes for table `mst_coa_group`
+-- Indeks untuk tabel `mst_coa_group`
 --
 ALTER TABLE `mst_coa_group`
   ADD PRIMARY KEY (`idx`,`kop_id`);
 
 --
--- Indexes for table `mst_coa_l2`
+-- Indeks untuk tabel `mst_coa_l2`
 --
 ALTER TABLE `mst_coa_l2`
   ADD PRIMARY KEY (`idxd_l2`,`idx`,`kop_id`);
 
 --
--- Indexes for table `mst_coa_l3`
+-- Indeks untuk tabel `mst_coa_l3`
 --
 ALTER TABLE `mst_coa_l3`
   ADD PRIMARY KEY (`idxd_l3`,`idxd_l2`,`idx`,`kop_id`);
 
 --
--- Indexes for table `mst_code_detail`
+-- Indeks untuk tabel `mst_code_detail`
 --
 ALTER TABLE `mst_code_detail`
   ADD PRIMARY KEY (`masterCode`,`detailCode`,`detailKop`);
 
 --
--- Indexes for table `mst_code_master`
+-- Indeks untuk tabel `mst_code_master`
 --
 ALTER TABLE `mst_code_master`
   ADD PRIMARY KEY (`masterCode`);
 
 --
--- Indexes for table `mst_fello_multi_biller`
+-- Indeks untuk tabel `mst_fello_multi_biller`
 --
 ALTER TABLE `mst_fello_multi_biller`
   ADD PRIMARY KEY (`kop_id`,`tipe`,`kode_layanan`,`kode_biller`,`product_id`,`concat_id`);
 
 --
--- Indexes for table `mst_gudang`
+-- Indeks untuk tabel `mst_gudang`
 --
 ALTER TABLE `mst_gudang`
   ADD PRIMARY KEY (`kopId`,`kode_gudang`);
 
 --
--- Indexes for table `mst_koperasi`
+-- Indeks untuk tabel `mst_koperasi`
 --
 ALTER TABLE `mst_koperasi`
   ADD PRIMARY KEY (`pk`,`idx`);
 
 --
--- Indexes for table `mst_pembeli`
+-- Indeks untuk tabel `mst_pembeli`
 --
 ALTER TABLE `mst_pembeli`
   ADD PRIMARY KEY (`kop_id`,`kode_pembeli`) USING BTREE;
 
 --
--- Indexes for table `mst_suplier`
+-- Indeks untuk tabel `mst_suplier`
 --
 ALTER TABLE `mst_suplier`
   ADD PRIMARY KEY (`kop_id`,`kode_suplier`) USING BTREE;
 
 --
--- Indexes for table `mst_toko`
+-- Indeks untuk tabel `mst_toko`
 --
 ALTER TABLE `mst_toko`
   ADD PRIMARY KEY (`toko_id`,`kop_id`);
 
 --
--- Indexes for table `mst_user`
+-- Indeks untuk tabel `mst_user`
 --
 ALTER TABLE `mst_user`
   ADD PRIMARY KEY (`userId`),
   ADD UNIQUE KEY `userNm` (`userNm`);
 
 --
--- Indexes for table `sysmenu`
+-- Indeks untuk tabel `sysmenu`
 --
 ALTER TABLE `sysmenu`
   ADD PRIMARY KEY (`menuCode`,`menuClass`);
 
 --
--- Indexes for table `tr_angsuran`
+-- Indeks untuk tabel `tr_angsuran`
 --
 ALTER TABLE `tr_angsuran`
   ADD PRIMARY KEY (`nomor_pinjaman`,`no_pengajuan`,`no_pengajuan_idx`,`no_anggota`,`kop_id`);
 
 --
--- Indexes for table `tr_cart`
+-- Indeks untuk tabel `tr_cart`
 --
 ALTER TABLE `tr_cart`
   ADD PRIMARY KEY (`cart_id`,`kode_barang`,`kop_id`,`toko_id`,`no_agt`);
 
 --
--- Indexes for table `tr_do_detail`
+-- Indeks untuk tabel `tr_do_detail`
 --
 ALTER TABLE `tr_do_detail`
   ADD PRIMARY KEY (`kop_id`,`do_no`,`do_seq`,`kode_barang`) USING BTREE;
 
 --
--- Indexes for table `tr_do_master`
+-- Indeks untuk tabel `tr_do_master`
 --
 ALTER TABLE `tr_do_master`
   ADD PRIMARY KEY (`kop_id`,`no_do`,`pembeli_no`) USING BTREE;
 
 --
--- Indexes for table `tr_fello_wallet`
+-- Indeks untuk tabel `tr_fello_wallet`
 --
 ALTER TABLE `tr_fello_wallet`
   ADD PRIMARY KEY (`wallet_id`,`kop_id`,`userEntry`,`noAccount`,`traceNumber`,`transactionNumber`);
 
 --
--- Indexes for table `tr_fello_wallet_binding`
+-- Indeks untuk tabel `tr_fello_wallet_binding`
 --
 ALTER TABLE `tr_fello_wallet_binding`
   ADD PRIMARY KEY (`idx`,`wallet_id`,`kop_id`,`userEntry`,`noAccount`,`traceNumber`);
 
 --
--- Indexes for table `tr_fello_wallet_log_binding`
+-- Indeks untuk tabel `tr_fello_wallet_log_binding`
 --
 ALTER TABLE `tr_fello_wallet_log_binding`
   ADD PRIMARY KEY (`idx`,`noAccount`,`traceNumber`);
 
 --
--- Indexes for table `tr_grn_detail`
+-- Indeks untuk tabel `tr_grn_detail`
 --
 ALTER TABLE `tr_grn_detail`
   ADD PRIMARY KEY (`kop_id`,`grn_no`,`grn_seq`,`po_no`,`kode_barang`) USING BTREE;
 
 --
--- Indexes for table `tr_grn_master`
+-- Indeks untuk tabel `tr_grn_master`
 --
 ALTER TABLE `tr_grn_master`
   ADD PRIMARY KEY (`kop_id`,`grn_no`,`suplier_no`) USING BTREE;
 
 --
--- Indexes for table `tr_kas`
+-- Indeks untuk tabel `tr_kas`
 --
 ALTER TABLE `tr_kas`
   ADD PRIMARY KEY (`noTran`,`idx`,`kop_id`);
 
 --
--- Indexes for table `tr_log_fello_wallet`
+-- Indeks untuk tabel `tr_log_fello_wallet`
 --
 ALTER TABLE `tr_log_fello_wallet`
   ADD PRIMARY KEY (`idx`,`wallet_id`,`kop_id`,`userEntry`,`noAccount`,`traceNumber`,`transactionNumber`);
 
 --
--- Indexes for table `tr_pengajuan_pinjaman`
+-- Indeks untuk tabel `tr_pengajuan_pinjaman`
 --
 ALTER TABLE `tr_pengajuan_pinjaman`
   ADD PRIMARY KEY (`noPengajuan`,`idx`,`kop_id`,`no_anggota`);
 
 --
--- Indexes for table `tr_pos`
+-- Indeks untuk tabel `tr_pos`
 --
 ALTER TABLE `tr_pos`
   ADD PRIMARY KEY (`pos_id`,`kode_barang`,`barcode`,`kop_id`) USING BTREE;
 
 --
--- Indexes for table `tr_pos_barcode`
+-- Indeks untuk tabel `tr_pos_barcode`
 --
 ALTER TABLE `tr_pos_barcode`
   ADD PRIMARY KEY (`pos_id`,`kode_barang`,`generate_barcode`,`kop_id`) USING BTREE;
 
 --
--- Indexes for table `tr_pos_detail`
+-- Indeks untuk tabel `tr_pos_detail`
 --
 ALTER TABLE `tr_pos_detail`
   ADD PRIMARY KEY (`pos_id`,`kode_barang`,`barcode`,`kop_id`) USING BTREE;
 
 --
--- Indexes for table `tr_pos_master`
+-- Indeks untuk tabel `tr_pos_master`
 --
 ALTER TABLE `tr_pos_master`
-  ADD PRIMARY KEY (`pos_id`,`kop_id`,`no_anggota`,`toko_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tr_pos_mobile_detail`
+-- Indeks untuk tabel `tr_pos_mobile_detail`
 --
 ALTER TABLE `tr_pos_mobile_detail`
   ADD PRIMARY KEY (`pos_id`,`kode_barang`,`no_anggota`,`kop_id`) USING BTREE;
 
 --
--- Indexes for table `tr_pos_mobile_master`
+-- Indeks untuk tabel `tr_pos_mobile_master`
 --
 ALTER TABLE `tr_pos_mobile_master`
   ADD PRIMARY KEY (`pos_id`,`kop_id`,`toko_id`,`no_anggota`);
 
 --
--- Indexes for table `tr_po_detail`
+-- Indeks untuk tabel `tr_po_detail`
 --
 ALTER TABLE `tr_po_detail`
   ADD PRIMARY KEY (`kop_id`,`po_no`,`po_seq`,`kode_barang`);
 
 --
--- Indexes for table `tr_po_master`
+-- Indeks untuk tabel `tr_po_master`
 --
 ALTER TABLE `tr_po_master`
   ADD PRIMARY KEY (`kop_id`,`no_po`,`suplier_no`);
 
 --
--- Indexes for table `tr_ppob_detail`
+-- Indeks untuk tabel `tr_ppob_detail`
 --
 ALTER TABLE `tr_ppob_detail`
   ADD PRIMARY KEY (`ppob_id`,`productCode`,`no_anggota`,`kop_id`,`account`);
 
 --
--- Indexes for table `tr_ppob_inq`
+-- Indeks untuk tabel `tr_ppob_inq`
 --
 ALTER TABLE `tr_ppob_inq`
   ADD PRIMARY KEY (`ppob_id`,`kop_id`,`no_anggota`) USING BTREE;
 
 --
--- Indexes for table `tr_ppob_master`
+-- Indeks untuk tabel `tr_ppob_master`
 --
 ALTER TABLE `tr_ppob_master`
   ADD PRIMARY KEY (`ppob_id`,`kop_id`,`no_anggota`,`productCode`,`account`,`transactionId`);
 
 --
--- Indexes for table `tr_ppob_mobile_detail`
+-- Indeks untuk tabel `tr_ppob_mobile_detail`
 --
 ALTER TABLE `tr_ppob_mobile_detail`
   ADD PRIMARY KEY (`ppob_id`,`productCode`,`no_anggota`,`kop_id`,`account`,`paramName`);
 
 --
--- Indexes for table `tr_ppob_mobile_master`
+-- Indeks untuk tabel `tr_ppob_mobile_master`
 --
 ALTER TABLE `tr_ppob_mobile_master`
   ADD PRIMARY KEY (`ppob_id`,`kop_id`,`no_anggota`,`productCode`,`account`);
 
 --
--- Indexes for table `tr_shu_master`
+-- Indeks untuk tabel `tr_shu_master`
 --
 ALTER TABLE `tr_shu_master`
   ADD PRIMARY KEY (`idx`,`kop_id`);
 
 --
--- Indexes for table `tr_simpan`
+-- Indeks untuk tabel `tr_simpan`
 --
 ALTER TABLE `tr_simpan`
   ADD PRIMARY KEY (`noSimpan`,`idx`,`noAgt`);
 
 --
--- Indexes for table `user_sysmenu`
+-- Indeks untuk tabel `tr_xendit`
+--
+ALTER TABLE `tr_xendit`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `user_sysmenu`
 --
 ALTER TABLE `user_sysmenu`
   ADD PRIMARY KEY (`userid`,`menuId`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `tr_pos_master`
+--
+ALTER TABLE `tr_pos_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT untuk tabel `tr_xendit`
+--
+ALTER TABLE `tr_xendit`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
