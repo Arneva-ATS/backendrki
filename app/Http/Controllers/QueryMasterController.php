@@ -268,8 +268,11 @@ class QueryMasterController extends Controller
     public function selTokoNomor(Request $request, $cmd)
     {
         $sql = "
-            SELECT *,ifnull(CONCAT('TOK-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),CONCAT('TOK-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )) as noTok,
-            ifnull(max(convert(REPLACE('','TOK-',''),DECIMAL))+1,1) tokNumber
+            SELECT
+            CONCAT('TOk-', DATE_FORMAT(NOW(), '%Y%m%d%H%i%s'), '-',
+                LPAD(IFNULL(MAX(CAST(SUBSTRING_INDEX(toko_id, '-', -1) AS UNSIGNED)) + 1, 1), 6, '0')
+            ) as noTok
+        FROM mst_toko;
         ";
         $results = DB::select($sql);
         return json_encode($results);
