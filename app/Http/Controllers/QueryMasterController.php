@@ -251,7 +251,7 @@ class QueryMasterController extends Controller
     {
         $sql = "
             SELECT *,ifnull(CONCAT('KOP-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),CONCAT('KOP-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )) as noKop,
-            ifnull(max(convert(REPLACE('','KOP-',''),DECIMAL))+1,1) kopNumber
+            ifnull(max(convert(REPLACE('','KOP-',''),DECIMAL))+1,1) kopNumber from mst_koperasi
         ";
         $results = DB::select($sql);
         return json_encode($results);
