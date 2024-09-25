@@ -530,7 +530,7 @@ class QueryMasterController extends Controller
             CONCAT('PMB-', DATE_FORMAT(NOW(), '%Y%m%d%H%i%s'), '-',
                 LPAD(IFNULL(MAX(CAST(SUBSTRING_INDEX(kode_pembeli, '-', -1) AS UNSIGNED)) + 1, 1), 6, '0')
             ) as noPembeli
-        FROM mst_pembeli;   
+        FROM mst_pembeli;
         ";
         $results = DB::select($sql);
         return json_encode($results);
@@ -548,9 +548,11 @@ class QueryMasterController extends Controller
     public function selSuplierNomor(Request $request, $cmd)
     {
         $sql = "
-        SELECT *,ifnull(CONCAT('SPL-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),
-        CONCAT('SPL-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )) as noSuplier,
-        ifnull(max(convert(REPLACE('','SPL-',''),DECIMAL))+1,1) agtNumber
+        SELECT
+            CONCAT('SPL-', DATE_FORMAT(NOW(), '%Y%m%d%H%i%s'), '-',
+                LPAD(IFNULL(MAX(CAST(SUBSTRING_INDEX(kode_suplier, '-', -1) AS UNSIGNED)) + 1, 1), 6, '0')
+            ) as noSuplier
+        FROM mst_suplier;
         ";
         $results = DB::select($sql);
         return json_encode($results);
