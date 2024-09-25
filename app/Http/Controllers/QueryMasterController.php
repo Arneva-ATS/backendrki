@@ -526,9 +526,11 @@ class QueryMasterController extends Controller
     public function selPembeliNomor(Request $request, $cmd)
     {
         $sql = "
-        SELECT *,ifnull(CONCAT('PMB-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),
-        CONCAT('PMB-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )) as noPembeli,
-        ifnull(max(convert(REPLACE('','PMB-',''),DECIMAL))+1,1) agtNumber
+        SELECT
+            CONCAT('PMB-', DATE_FORMAT(NOW(), '%Y%m%d%H%i%s'), '-',
+                LPAD(IFNULL(MAX(CAST(SUBSTRING_INDEX(kode_pembeli, '-', -1) AS UNSIGNED)) + 1, 1), 6, '0')
+            ) as noPembeli
+        FROM mst_pembeli;   
         ";
         $results = DB::select($sql);
         return json_encode($results);
