@@ -232,8 +232,8 @@ class QueryMasterController extends Controller
         $coads = '%' .  $request->get("coads") . '%';
         $kop_id = '%' .  $request->get("kop_id") . '%';
         $sql = "
-            SELECT *,CONCAT('COADS',max(REPLACE(idxd_l3,'COADS',''))+1 ) as noCoads,max(REPLACE(idxd_l3,'COADS',''))+1 coadsNumber from mst_coa_l3 WHERE idxd_l2 LIKE  ? AND kop_id LIKE ?
-        ";
+            SELECT *,CONCAT('COADS',max(REPLACE(idxd_l3,'COADS',''))+1 ) as noCoads,max(REPLACE(idxd_l3,'COADS',''))+1 coadsNumber from mst_coa_l3 WHERE idxd_l2 LIKE  ? AND kop_id LIKE ?;
+            ";
         $results = DB::select($sql, [$coads, $kop_id]);
         return json_encode($results);
     }
@@ -242,7 +242,7 @@ class QueryMasterController extends Controller
     {
         $sql = "
         SELECT *,ifnull(CONCAT('USER-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),CONCAT('USER-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )) as noUser,
-        ifnull(max(convert(REPLACE('','USER-',''),DECIMAL))+1,1) userNumber
+        ifnull(max(convert(REPLACE('','USER-',''),DECIMAL))+1,1) userNumber;
         ";
         $results = DB::select($sql);
         return json_encode($results);
@@ -251,7 +251,7 @@ class QueryMasterController extends Controller
     {
         $sql = "
             SELECT *,ifnull(CONCAT('KOP-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),CONCAT('KOP-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )) as noKop,
-            ifnull(max(convert(REPLACE('','KOP-',''),DECIMAL))+1,1) kopNumber from mst_koperasi
+            ifnull(max(convert(REPLACE('','KOP-',''),DECIMAL))+1,1) kopNumber FROM mst_koperasi;
         ";
         $results = DB::select($sql);
         return json_encode($results);
@@ -260,7 +260,7 @@ class QueryMasterController extends Controller
     {
         $sql = "
             SELECT *,ifnull(CONCAT('TOK-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),CONCAT('TOK-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )) as noTok,
-            ifnull(max(convert(REPLACE('','TOK-',''),DECIMAL))+1,1) tokNumber
+            ifnull(max(convert(REPLACE('','TOK-',''),DECIMAL))+1,1) tokNumber;
         ";
         $results = DB::select($sql);
         return json_encode($results);
