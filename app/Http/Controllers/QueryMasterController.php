@@ -250,8 +250,8 @@ class QueryMasterController extends Controller
     public function selKoperasiNomor(Request $request, $cmd)
     {
         $sql = "
-            SELECT *,ifnull(CONCAT('KOP-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),CONCAT('KOP-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )) as noKop,
-            ifnull(max(convert(REPLACE('','KOP-',''),DECIMAL))+1,1) kopNumber FROM mst_koperasi
+            SELECT CONCAT('KOP-', DATE_FORMAT(NOW(), '%Y%m%d%H%i%s')) as noKop,
+            ifnull(max(convert(REPLACE('','KOP-',''),DECIMAL))+1,1) as kopNumber FROM mst_koperasi;
         ";
         $results = DB::select($sql);
         return json_encode($results);
