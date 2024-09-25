@@ -478,8 +478,11 @@ class QueryMasterController extends Controller
     public function selAnggotaNomor(Request $request, $cmd)
     {
         $sql = "
-            SELECT *,ifnull(CONCAT('AGT-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) ),CONCAT('AGT-',SUBSTRING(DATE_FORMAT(NOW(3), '%Y%m%d%H%m%s-%f'),1,22) )) as noAgt,
-            ifnull(max(convert(REPLACE('','AGT-',''),DECIMAL))+1,1) agtNumber
+            SELECT
+            CONCAT('AGT-', DATE_FORMAT(NOW(), '%Y%m%d%H%i%s'), '-',
+                LPAD(IFNULL(MAX(CAST(SUBSTRING_INDEX(no_anggota, '-', -1) AS UNSIGNED)) + 1, 1), 6, '0')
+            ) as noAgt
+        FROM mst_anggota;
         ";
         $results = DB::select($sql);
         return json_encode($results);
