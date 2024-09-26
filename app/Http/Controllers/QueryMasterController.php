@@ -602,7 +602,7 @@ class QueryMasterController extends Controller
     }
     public function selPriceFello(Request $request, $cmd)
     {
-        $kop_id =   $request->get("kop_id");
+        $kop_id = $request->get("kop_id");
         $sql = "
         SELECT * FROM mst_fello_multi_biller where kop_id='" . $kop_id . "'
         ";

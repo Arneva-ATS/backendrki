@@ -878,31 +878,55 @@ class InsUpDelMasterController extends Controller
     public function InsGudang(Request $request, $cmd)
     {
         $userIns = $_POST["userIns"];
-        $kopId = $_POST["kopId"];
         $kode_gudang = $_POST["kode_gudang"];
         $nama_gudang = $_POST["nama_gudang"];
         $alamat = $_POST["alamat"];
         $nomor_telpon = $_POST["nomor_telpon"];
         $status = $_POST["status"];
 
-        $sql = "select * from mst_gudang where kode_gudang='" . $kode_gudang . "'  ";
-        $resultMax = DB::select($sql);
+        $request->validate([
+            'kode_gudang' => 'required|string|max:255',
+            'nama_gudang' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'nomor_telpon' => 'required|string|max:15',
+            'status' => 'required|string|max:50',
+        ]);
+        $existingGudang = DB::table('mst_gudang')
+        ->where('kode_gudang', $kode_gudang)
+        ->first();
 
-        if (count($resultMax) > 0) {
-            $result = array("sts" => "N", "desc" => "Id Sudah Ada ! Silahkan Gunakan Id Lain");
-        } else {
-            $sql = "insert into mst_gudang values ('" . $kopId . "',
-            '" . $kode_gudang . "',
-            '" . $nama_gudang . "',
-            '" . $alamat . "',
-            '" . $nomor_telpon . "',
-            '" . $status . "','" . $userIns . "',now() ) ";
+    if ($existingGudang) {
+        // Jika ID sudah ada, lakukan update
+        $update = DB::table('mst_gudang')
+            ->where('kode_gudang', $kode_gudang)
+            ->update([
+                'nama_gudang' => $nama_gudang,
+                'alamat' => $alamat,
+                'nomor_telpon' => $nomor_telpon,
+                'status' => $status,
+                'userIns' => $userIns,
+            ]);
 
-            $resultsIns = DB::insert($sql);
-            if ($resultsIns > 0) {
-                $result = array("sts" => "OK", "desc" => "Save Success", "msg" => $kode_gudang);
+            if ($update) {
+                $result = ["sts" => "OK", "desc" => "Update Success", "msg" => $kode_gudang];
             } else {
-                $result = array("sts" => "N", "desc" => "Save Failed", "msg" => $resultsIns);
+                $result = ["sts" => "N", "desc" => "Update Failed", "msg" => "Gagal memperbarui data."];
+            }
+        } else {
+            // Jika ID tidak ada, lakukan insert
+            $insert = DB::table('mst_pembeli')->insert([
+                'kode_gudang' => $kode_gudang,
+                'nama_gudang' => $nama_gudang,
+                'alamat' => $alamat,
+                'nomor_telpon' => $nomor_telpon,
+                'status' => $status,
+                'userIns' => $userIns,
+            ]);
+
+            if ($insert) {
+                $result = ["sts" => "OK", "desc" => "Save Success", "msg" => $kode_gudang];
+            } else {
+                $result = ["sts" => "N", "desc" => "Save Failed", "msg" => "Gagal menyimpan data."];
             }
         }
         return json_encode($result);
@@ -923,35 +947,64 @@ class InsUpDelMasterController extends Controller
     }
 
     public function InsPembeli(Request $request, $cmd)
-    {
-        $userIns = $_POST["userIns"];
-        $kopId = $_POST["kopId"];
-        $kode_pembeli = $_POST["kode_pembeli"];
-        $nama_pembeli = $_POST["nama_pembeli"];
-        $alamat = $_POST["alamat"];
-        $nomor_telpon = $_POST["nomor_telpon"];
-        $status = $_POST["status"];
+{
+    // Ambil data input dari request
+    $userIns = $request->input("userIns");
+    $kode_pembeli = $request->input("kode_pembeli");
+    $nama_pembeli = $request->input("nama_pembeli");
+    $alamat = $request->input("alamat");
+    $nomor_telpon = $request->input("nomor_telpon");
+    $status = $request->input("status");
 
-        $sql = "select * from mst_pembeli where kode_pembeli='" . $kode_pembeli . "'  ";
-        $resultMax = DB::select($sql);
+    // Validasi data (opsional, bisa disesuaikan)
+    $request->validate([
+        'kode_pembeli' => 'required|string|max:255',
+        'nama_pembeli' => 'required|string|max:255',
+        'alamat' => 'required|string',
+        'nomor_telpon' => 'required|string|max:15',
+        'status' => 'required|string|max:50',
+    ]);
 
-        if (count($resultMax) > 0) {
-            $result = array("sts" => "N", "desc" => "Id Sudah Ada ! Silahkan Gunakan Id Lain");
+    // Cek apakah kode_pembeli sudah ada
+    $existingPembeli = DB::table('mst_pembeli')
+        ->where('kode_pembeli', $kode_pembeli)
+        ->first();
+
+    if ($existingPembeli) {
+        // Jika ID sudah ada, lakukan update
+        $update = DB::table('mst_pembeli')
+            ->where('kode_pembeli', $kode_pembeli)
+            ->update([
+                'nama_pembeli' => $nama_pembeli,
+                'alamat' => $alamat,
+                'nomor_telpon' => $nomor_telpon,
+                'status' => $status,
+                'userIns' => $userIns,
+            ]);
+
+        if ($update) {
+            $result = ["sts" => "OK", "desc" => "Update Success", "msg" => $kode_pembeli];
         } else {
-            $sql = "insert into mst_pembeli values ('" . $kopId . "',
-            '" . $kode_pembeli . "',
-            '" . $nama_pembeli . "',
-            '" . $alamat . "',
-            '" . $nomor_telpon . "',
-            '" . $status . "','" . $userIns . "',now() ) ";
-
-            $resultsIns = DB::insert($sql);
-            if ($resultsIns > 0) {
-                $result = array("sts" => "OK", "desc" => "Save Success", "msg" => $kode_pembeli);
-            } else {
-                $result = array("sts" => "N", "desc" => "Save Failed", "msg" => $resultsIns);
-            }
+            $result = ["sts" => "N", "desc" => "Update Failed", "msg" => "Gagal memperbarui data."];
         }
+    } else {
+        // Jika ID tidak ada, lakukan insert
+        $insert = DB::table('mst_pembeli')->insert([
+            'kode_pembeli' => $kode_pembeli,
+            'nama_pembeli' => $nama_pembeli,
+            'alamat' => $alamat,
+            'nomor_telpon' => $nomor_telpon,
+            'status' => $status,
+            'userIns' => $userIns,
+        ]);
+
+        if ($insert) {
+            $result = ["sts" => "OK", "desc" => "Save Success", "msg" => $kode_pembeli];
+        } else {
+            $result = ["sts" => "N", "desc" => "Save Failed", "msg" => "Gagal menyimpan data."];
+        }
+    }
+
         return json_encode($result);
     }
     public function delSuplier(Request $request, $cmd)
@@ -970,32 +1023,60 @@ class InsUpDelMasterController extends Controller
 
     public function InsSuplier(Request $request, $cmd)
     {
-        $userIns = $_POST["userIns"];
-        $kopId = $_POST["kopId"];
-        $kode_suplier = $_POST["kode_suplier"];
-        $nama_suplier = $_POST["nama_suplier"];
-        $alamat = $_POST["alamat"];
-        $nomor_telpon = $_POST["nomor_telpon"];
-        $status = $_POST["status"];
+        // Ambil data input dari request
+        $userIns = $request->input("userIns");
+        $kode_suplier = $request->input("kode_suplier");
+        $nama_suplier = $request->input("nama_suplier");
+        $alamat = $request->input("alamat");
+        $nomor_telpon = $request->input("nomor_telpon");
+        $status = $request->input("status");
 
-        $sql = "select * from mst_suplier where kode_suplier='" . $kode_suplier . "'  ";
-        $resultMax = DB::select($sql);
+        // Validasi data (opsional, bisa disesuaikan)
+        $request->validate([
+            'kode_suplier' => 'required|string|max:255',
+            'nama_suplier' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'nomor_telpon' => 'required|string|max:15',
+            'status' => 'required|string|max:50',
+        ]);
 
-        if (count($resultMax) > 0) {
-            $result = array("sts" => "N", "desc" => "Id Sudah Ada ! Silahkan Gunakan Id Lain");
-        } else {
-            $sql = "insert into mst_suplier values ('" . $kopId . "',
-            '" . $kode_suplier . "',
-            '" . $nama_suplier . "',
-            '" . $alamat . "',
-            '" . $nomor_telpon . "',
-            '" . $status . "','" . $userIns . "',now() ) ";
+        // Cek apakah kode_suplier sudah ada
+        $existingSuplier = DB::table('mst_suplier')
+            ->where('kode_suplier', $kode_suplier)
+            ->first();
 
-            $resultsIns = DB::insert($sql);
-            if ($resultsIns > 0) {
-                $result = array("sts" => "OK", "desc" => "Save Success", "msg" => $kode_suplier);
+        if ($existingSuplier) {
+            // Jika ID sudah ada, lakukan update tanpa userUpd
+            $update = DB::table('mst_suplier')
+                ->where('kode_suplier', $kode_suplier)
+                ->update([
+                    'nama_suplier' => $nama_suplier,
+                    'alamat' => $alamat,
+                    'nomor_telpon' => $nomor_telpon,
+                    'status' => $status,
+                    'userIns' => $userIns,
+                ]);
+
+            if ($update) {
+                $result = ["sts" => "OK", "desc" => "Update Success", "msg" => $kode_suplier];
             } else {
-                $result = array("sts" => "N", "desc" => "Save Failed", "msg" => $resultsIns);
+                $result = ["sts" => "N", "desc" => "Update Failed", "msg" => $update];
+            }
+        } else {
+            // Jika ID tidak ada, lakukan insert
+            $insert = DB::table('mst_suplier')->insert([
+                'kode_suplier' => $kode_suplier,
+                'nama_suplier' => $nama_suplier,
+                'alamat' => $alamat,
+                'nomor_telpon' => $nomor_telpon,
+                'status' => $status,
+                'userIns' => $userIns,
+            ]);
+
+            if ($insert) {
+                $result = ["sts" => "OK", "desc" => "Insert Success", "msg" => $kode_suplier];
+            } else {
+                $result = ["sts" => "N", "desc" => "Insert Failed", "msg" => $insert];
             }
         }
         return json_encode($result);
