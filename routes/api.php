@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Erp\QueryErpController;
+use App\Http\Controllers\QueryErpController;
 use App\Http\Controllers\FelloController;
 use App\Http\Controllers\InsUpDelKoperasiController;
 use App\Http\Controllers\InsUpDelMasterController;
