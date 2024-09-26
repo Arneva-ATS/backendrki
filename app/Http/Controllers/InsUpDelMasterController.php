@@ -978,26 +978,50 @@ class InsUpDelMasterController extends Controller
         $nomor_telpon = $_POST["nomor_telpon"];
         $status = $_POST["status"];
 
-        $sql = "select * from mst_suplier where kode_suplier='" . $kode_suplier . "'  ";
-        $resultMax = DB::select($sql);
+        $sqlCheck = "SELECT COUNT(*) as count FROM mst_suplier WHERE kode_suplier = '" . $kode_suplier . "'";
+        $resultMax = DB::select($sqlCheck);
+        $count = $resultMax[0]->count;
 
-        if (count($resultMax) > 0) {
-            $result = array("sts" => "N", "desc" => "Id Sudah Ada ! Silahkan Gunakan Id Lain");
+        if ($count > 0) {
+            // Jika ID sudah ada, lakukan update
+            $sql = "
+        UPDATE mst_suplier
+        SET
+            kopId = '" . $kopId . "',
+            nama_suplier = '" . $nama_suplier . "',
+            alamat = '" . $alamat . "',
+            nomor_telpon = '" . $nomor_telpon . "',
+            status = '" . $status . "',
+            userUpd = '" . $userIns . "',
+            dateUpd = now()
+        WHERE kode_suplier = '" . $kode_suplier . "'
+    ";
+
+            $resultsUpd = DB::update($sql);
+            if ($resultsUpd > 0) {
+                $result = array("sts" => "OK", "desc" => "Update Success", "msg" => $kode_suplier);
+            } else {
+                $result = array("sts" => "N", "desc" => "Update Failed", "msg" => $resultsUpd);
+            }
         } else {
-            $sql = "insert into mst_suplier values ('" . $kopId . "',
-            '" . $kode_suplier . "',
-            '" . $nama_suplier . "',
-            '" . $alamat . "',
-            '" . $nomor_telpon . "',
-            '" . $status . "','" . $userIns . "',now() ) ";
+            // Jika ID tidak ada, lakukan insert (penambahan data baru)
+            $sql = "
+        INSERT INTO mst_suplier
+        (kopId, kode_suplier, nama_suplier, alamat, nomor_telpon, status, userIns, dateIns)
+        VALUES
+        ('" . $kopId . "', '" . $kode_suplier . "', '" . $nama_suplier . "',
+        '" . $alamat . "', '" . $nomor_telpon . "', '" . $status . "',
+        '" . $userIns . "', now())
+    ";
 
             $resultsIns = DB::insert($sql);
             if ($resultsIns > 0) {
-                $result = array("sts" => "OK", "desc" => "Save Success", "msg" => $kode_suplier);
+                $result = array("sts" => "OK", "desc" => "Insert Success", "msg" => $kode_suplier);
             } else {
-                $result = array("sts" => "N", "desc" => "Save Failed", "msg" => $resultsIns);
+                $result = array("sts" => "N", "desc" => "Insert Failed", "msg" => $resultsIns);
             }
         }
+
         return json_encode($result);
     }
 
