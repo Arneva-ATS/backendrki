@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Erp\QueryErpController;
 use App\Http\Controllers\FelloController;
 use App\Http\Controllers\InsUpDelKoperasiController;
 use App\Http\Controllers\InsUpDelMasterController;
@@ -35,3 +36,4 @@ Route::post('/koperasi/InsUpDelKoperasi', [InsUpDelKoperasiController::class, 'r
 Route::post('/fello', [FelloController::class, 'run']);
 Route::post('/xendit/create-payment', [XenditController::class, 'create_invoice']);
 Route::post('/xendit/callback', [XenditController::class, 'callback_invoice']);
+Route::post('erp/QueryErp', [QueryErpController::class, 'run']);
