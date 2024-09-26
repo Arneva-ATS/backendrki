@@ -925,7 +925,7 @@ class InsUpDelMasterController extends Controller
     public function InsPembeli(Request $request, $cmd)
     {
         $userIns = $_POST["userIns"];
-        $kop_id = $_POST["kop_id"];
+        $kopId = $_POST["kopId"];
         $kode_pembeli = $_POST["kode_pembeli"];
         $nama_pembeli = $_POST["nama_pembeli"];
         $alamat = $_POST["alamat"];
@@ -938,7 +938,7 @@ class InsUpDelMasterController extends Controller
         if (count($resultMax) > 0) {
             $result = array("sts" => "N", "desc" => "Id Sudah Ada ! Silahkan Gunakan Id Lain");
         } else {
-            $sql = "insert into mst_pembeli values ('" . $kop_id . "',
+            $sql = "insert into mst_pembeli values ('" . $kopId . "',
             '" . $kode_pembeli . "',
             '" . $nama_pembeli . "',
             '" . $alamat . "',
@@ -971,7 +971,7 @@ class InsUpDelMasterController extends Controller
     public function InsSuplier(Request $request, $cmd)
     {
         $userIns = $_POST["userIns"];
-        $kop_id = $_POST["kop_id"];
+        $kop_d = $_POST["kopId"];
         $kode_suplier = $_POST["kode_suplier"];
         $nama_suplier = $_POST["nama_suplier"];
         $alamat = $_POST["alamat"];
@@ -983,11 +983,10 @@ class InsUpDelMasterController extends Controller
         $count = $resultMax[0]->count;
 
         if ($count > 0) {
-            // Jika ID sudah ada, lakukan update
+            // Jika ID sudah ada, lakukan update tanpa kopId
             $sql = "
         UPDATE mst_suplier
         SET
-            kopId = '" . $kop_id . "',
             nama_suplier = '" . $nama_suplier . "',
             alamat = '" . $alamat . "',
             nomor_telpon = '" . $nomor_telpon . "',
@@ -1004,14 +1003,13 @@ class InsUpDelMasterController extends Controller
                 $result = array("sts" => "N", "desc" => "Update Failed", "msg" => $resultsUpd);
             }
         } else {
-            // Jika ID tidak ada, lakukan insert (penambahan data baru)
+            // Jika ID tidak ada, lakukan insert tanpa kopId
             $sql = "
         INSERT INTO mst_suplier
-        (kopId, kode_suplier, nama_suplier, alamat, nomor_telpon, status, userIns, dateIns)
+        (kode_suplier, nama_suplier, alamat, nomor_telpon, status, userIns, dateIns)
         VALUES
-        ('" . $kop_id . "', '" . $kode_suplier . "', '" . $nama_suplier . "',
-        '" . $alamat . "', '" . $nomor_telpon . "', '" . $status . "',
-        '" . $userIns . "', now())
+        ('" . $kode_suplier . "', '" . $nama_suplier . "', '" . $alamat . "',
+        '" . $nomor_telpon . "', '" . $status . "', '" . $userIns . "', now())
     ";
 
             $resultsIns = DB::insert($sql);
