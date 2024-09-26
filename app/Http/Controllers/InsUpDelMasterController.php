@@ -986,15 +986,14 @@ class InsUpDelMasterController extends Controller
             // Jika ID sudah ada, lakukan update tanpa kopId
             $sql = "
         UPDATE mst_suplier
-        SET
-            nama_suplier = '" . $nama_suplier . "',
-            alamat = '" . $alamat . "',
-            nomor_telpon = '" . $nomor_telpon . "',
-            status = '" . $status . "',
-            userUpd = '" . $userIns . "',
-            dateUpd = now()
-        WHERE kode_suplier = '" . $kode_suplier . "'
-    ";
+    SET
+        nama_suplier = '" . $nama_suplier . "',
+        alamat = '" . $alamat . "',
+        nomor_telpon = '" . $nomor_telpon . "',
+        status = '" . $status . "',
+        dateUpd = now()
+    WHERE kode_suplier = '" . $kode_suplier . "'
+";
 
             $resultsUpd = DB::update($sql);
             if ($resultsUpd > 0) {
