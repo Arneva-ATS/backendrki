@@ -925,7 +925,7 @@ class InsUpDelMasterController extends Controller
     public function InsPembeli(Request $request, $cmd)
     {
         $userIns = $_POST["userIns"];
-        $kopId = $_POST["kopId"];
+        $kop_id = $_POST["kop_id"];
         $kode_pembeli = $_POST["kode_pembeli"];
         $nama_pembeli = $_POST["nama_pembeli"];
         $alamat = $_POST["alamat"];
@@ -938,7 +938,7 @@ class InsUpDelMasterController extends Controller
         if (count($resultMax) > 0) {
             $result = array("sts" => "N", "desc" => "Id Sudah Ada ! Silahkan Gunakan Id Lain");
         } else {
-            $sql = "insert into mst_pembeli values ('" . $kopId . "',
+            $sql = "insert into mst_pembeli values ('" . $kop_id . "',
             '" . $kode_pembeli . "',
             '" . $nama_pembeli . "',
             '" . $alamat . "',
@@ -971,7 +971,7 @@ class InsUpDelMasterController extends Controller
     public function InsSuplier(Request $request, $cmd)
     {
         $userIns = $_POST["userIns"];
-        $kopId = $_POST["kopId"];
+        $kop_id = $_POST["kop_id"];
         $kode_suplier = $_POST["kode_suplier"];
         $nama_suplier = $_POST["nama_suplier"];
         $alamat = $_POST["alamat"];
@@ -987,7 +987,7 @@ class InsUpDelMasterController extends Controller
             $sql = "
         UPDATE mst_suplier
         SET
-            kopId = '" . $kopId . "',
+            kopId = '" . $kop_id . "',
             nama_suplier = '" . $nama_suplier . "',
             alamat = '" . $alamat . "',
             nomor_telpon = '" . $nomor_telpon . "',
@@ -1009,7 +1009,7 @@ class InsUpDelMasterController extends Controller
         INSERT INTO mst_suplier
         (kopId, kode_suplier, nama_suplier, alamat, nomor_telpon, status, userIns, dateIns)
         VALUES
-        ('" . $kopId . "', '" . $kode_suplier . "', '" . $nama_suplier . "',
+        ('" . $kop_id . "', '" . $kode_suplier . "', '" . $nama_suplier . "',
         '" . $alamat . "', '" . $nomor_telpon . "', '" . $status . "',
         '" . $userIns . "', now())
     ";
