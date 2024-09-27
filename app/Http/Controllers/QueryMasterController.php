@@ -281,25 +281,31 @@ class QueryMasterController extends Controller
     }
 
     public function selCodeDetailNomor(Request $request, $cmd)
-    {
-        $masterCode =  $request->get("masterCode");
-        $kop_id = '%' .  $request->get("kop_id") . '%';
+{
+    // Ambil nilai dari request
+    $masterCode = $request->get('masterCode');
+    $kop_id = '%' . $request->get('kop_id') . '%';
 
-        $sql = "
-            SELECT *,
-            CASE
-            when length(max(detailcode)+1)=1 then CONCAT('00000',max(detailcode)+1 )
-            when length(max(detailcode)+1)=2 then CONCAT('0000',max(detailcode)+1 )
-            when length(max(detailcode)+1)=3 then CONCAT('000',max(detailcode)+1 )
-            when length(max(detailcode)+1)=4 then CONCAT('00',max(detailcode)+1 )
-            when length(max(detailcode)+1)=5 then CONCAT('0',max(detailcode)+1 )
-            ELSE max(detailcode)+1
-            end  noCodeDetail
-            from mst_code_detail  WHERE masterCode=? and detailKop like ?
-        ";
-        $results = DB::select($sql, [$masterCode, $kop_id]);
-        return json_encode($results);
-    }
+    // Menggunakan Query Builder Laravel
+    $results = DB::table('mst_code_detail')
+        ->select(
+            DB::raw('*, CASE
+                WHEN LENGTH(MAX(detailcode) + 1) = 1 THEN CONCAT("00000", MAX(detailcode) + 1)
+                WHEN LENGTH(MAX(detailcode) + 1) = 2 THEN CONCAT("0000", MAX(detailcode) + 1)
+                WHEN LENGTH(MAX(detailcode) + 1) = 3 THEN CONCAT("000", MAX(detailcode) + 1)
+                WHEN LENGTH(MAX(detailcode) + 1) = 4 THEN CONCAT("00", MAX(detailcode) + 1)
+                WHEN LENGTH(MAX(detailcode) + 1) = 5 THEN CONCAT("0", MAX(detailcode) + 1)
+                ELSE MAX(detailcode) + 1
+                END AS noCodeDetail')
+        )
+        ->where('masterCode', $masterCode)
+        ->where('detailKop', 'like', $kop_id)
+        ->groupBy('masterCode', 'detailKop') // Tambahkan groupBy agar query bekerja dengan baik
+        ->get();
+
+    // Mengembalikan hasil dalam format JSON
+    return json_encode($results);
+}
 
     public function selCodeMaster(Request $request, $cmd)
     {
