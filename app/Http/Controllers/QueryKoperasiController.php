@@ -550,7 +550,6 @@ class QueryKoperasiController extends Controller
     public function selJurnalKas(Request $request, $cmd)
     {
         $tgl_awal = $_POST["tgl_awal"];
-        $tgl_akhir = $_POST["tgl_akhir"];
         $kop_id =  $_POST["kop_id"];
         $coa =  $_POST["coa"];
         $jenisTran = $_POST["jenisTran"];

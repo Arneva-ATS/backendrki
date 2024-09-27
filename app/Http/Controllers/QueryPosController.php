@@ -147,17 +147,39 @@ class QueryPosController extends Controller
         $toko_id =  $_POST["toko_id"];
         $tipe_bayar =  $_POST["tipeBayar"];
         $sql = "
-            SELECT *,case when ifnull(c.nama,'')='' then ifnull(d.namaUser,'') ELSE ifnull(c.nama,'') END nama,b.nama_koperasi,DATE(a.dateins) transactionDate,e.detailName strTipebayar
-            FROM tr_pos_mobile_master a
-            JOIN mst_koperasi b ON a.kop_id=b.idx
-            LEFT JOIN mst_anggota c ON a.no_anggota=c.no_anggota AND c.no_koperasi='" . $kop_id . "'
-            LEFT JOIN mst_user d ON a.no_anggota=d.userId AND d.no_koperasi='" . $kop_id . "'
-            LEFT JOIN mst_code_detail e ON e.masterCode='1000018'   and a.tipe_bayar=e.detailcode
-            LEFT JOIN mst_toko f ON a.kop_id=f.kop_id AND f.kop_id='" . $kop_id . "' AND f.toko_id LIKE '%" . $toko_id . "%'
-            where  DATE(a.dateins) BETWEEN DATE(?) AND DATE(?) AND a.kop_id LIKE '%" . $kop_id . "%'  and sts='SUCCESS' and tipe_bayar like '%" . $tipe_bayar . "%'
-            order by nama,dateins desc
-        ";
-        $results = DB::select($sql, [$tgl_awal, $tgl_akhir]);
+        SELECT
+            a.*,
+            CASE
+                WHEN IFNULL(c.nama, '') = '' THEN IFNULL(d.namaUser, '')
+                ELSE IFNULL(c.nama, '')
+            END nama,
+            b.nama_koperasi,
+            DATE(a.dateins) AS transactionDate,
+            e.detailName AS strTipebayar
+        FROM tr_pos_mobile_master a
+        JOIN mst_koperasi b ON a.kop_id = b.idx
+        LEFT JOIN mst_anggota c ON a.no_anggota = c.no_anggota AND c.no_koperasi = ?
+        LEFT JOIN mst_user d ON a.no_anggota = d.userId AND d.no_koperasi = ?
+        LEFT JOIN mst_code_detail e ON e.masterCode = '1000018' AND a.tipe_bayar = e.detailcode
+        LEFT JOIN mst_toko f ON a.kop_id = f.kop_id AND f.kop_id = ? AND f.toko_id LIKE ?
+        WHERE DATE(a.dateins) BETWEEN DATE(?) AND DATE(?)
+            AND a.kop_id LIKE ?
+            AND sts = 'SUCCESS'
+            AND a.tipe_bayar LIKE ?
+        ORDER BY nama, a.dateins DESC
+    ";
+
+    // Menjalankan query dengan parameter binding
+    $results = DB::select($sql, [
+        $kop_id,
+        $kop_id,
+        $kop_id,
+        '%'.$toko_id.'%',
+        $tgl_awal,
+        $tgl_akhir,
+        '%'.$kop_id.'%',
+        '%'.$tipe_bayar.'%'
+    ]);
         return json_encode($results);
     }
 
