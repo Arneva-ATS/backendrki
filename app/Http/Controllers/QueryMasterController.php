@@ -67,6 +67,8 @@ class QueryMasterController extends Controller
             $result = $this->selSuplier($request, $cmd);
         } else if ($cmd == "selSuplierNomor") {
             $result = $this->selSuplierNomor($request, $cmd);
+        } else if ($cmd == "selCodeDetailNomor") {
+            $result = $this->selCodeDetailNomor($request, $cmd);
         } else if ($cmd == "selJenisSimpanan") {
             $result = $this->selJenisSimpanan($request, $cmd);
         } else if ($cmd == "selKoperasiNomor") {
@@ -602,7 +604,7 @@ class QueryMasterController extends Controller
     }
     public function selPriceFello(Request $request, $cmd)
     {
-        $kop_id = $request->get("kop_id");
+        $kop_id =   $request->get("kop_id");
         $sql = "
         SELECT * FROM mst_fello_multi_biller where kop_id='" . $kop_id . "'
         ";
