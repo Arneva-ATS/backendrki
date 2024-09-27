@@ -251,18 +251,58 @@ class QueryPosController extends Controller
         $kop_id = $_POST["kop_id"];
         $tgl_awal = $_POST["tgl_awal"];
         $sql = "
-        SELECT *,'Total Penjualan' item ,'BELUM CLOSING' ket,'" . $tgl_awal . "' tgl,ifnull(SUM(real_amount),0) amount FROM tr_pos_master WHERE tipe_bayar='000001' AND convert(dateIns,DATE)='" . $tgl_awal . "' AND appYn='UNAPPROVE' AND  kop_id LIKE '%" . $kop_id . "%'
-        UNION all
-        SELECT *,'CASH' ,'BELUM CLOSING','" . $tgl_awal . "' ,ifnull(SUM(real_amount),0) amount FROM tr_pos_master WHERE tipe_bayar='000001' AND convert(dateIns,DATE)='" . $tgl_awal . "' AND appYn='UNAPPROVE' AND  kop_id LIKE '%" . $kop_id . "%'
-        UNION all
-        SELECT *,'QRIS','BELUM CLOSING','" . $tgl_awal . "' ,ifnull(SUM(real_amount),0) amount FROM tr_pos_master WHERE tipe_bayar='000002' AND convert(dateIns,DATE)='" . $tgl_awal . "' AND appYn='UNAPPROVE' AND  kop_id LIKE '%" . $kop_id . "%'
-        UNION all
-        SELECT *,'Total Penjualan' ,'CLOSING','" . $tgl_awal . "' ,ifnull(SUM(real_amount),0) amount FROM tr_pos_master WHERE tipe_bayar='000001' AND convert(dateIns,DATE)='" . $tgl_awal . "' AND appYn='APPROVE' AND  kop_id LIKE '%" . $kop_id . "%'
-        UNION all
-        SELECT *,'CASH' ,'CLOSING','" . $tgl_awal . "' ,ifnull(SUM(real_amount),0) amount FROM tr_pos_master WHERE tipe_bayar='000001' AND convert(dateIns,DATE)='" . $tgl_awal . "' AND appYn='APPROVE' AND  kop_id LIKE '%" . $kop_id . "%'
-        UNION all
-        SELECT *,'QRIS','CLOSING','" . $tgl_awal . "' ,ifnull(SUM(real_amount),0) amount FROM tr_pos_master WHERE tipe_bayar='000002' AND convert(dateIns,DATE)='" . $tgl_awal . "' AND appYn='APPROVE' AND  kop_id LIKE '%" . $kop_id . "%'
-        ";
+    SELECT 'Total Penjualan' AS item, 'BELUM CLOSING' AS ket, '" . $tgl_awal . "' AS tgl, ifnull(SUM(real_amount), 0) AS amount
+    FROM tr_pos_master
+    WHERE tipe_bayar='000001'
+    AND convert(dateIns, DATE)='" . $tgl_awal . "'
+    AND appYn='UNAPPROVE'
+    AND kop_id LIKE '%" . $kop_id . "%'
+
+    UNION ALL
+
+    SELECT 'CASH' AS item, 'BELUM CLOSING' AS ket, '" . $tgl_awal . "' AS tgl, ifnull(SUM(real_amount), 0) AS amount
+    FROM tr_pos_master
+    WHERE tipe_bayar='000001'
+    AND convert(dateIns, DATE)='" . $tgl_awal . "'
+    AND appYn='UNAPPROVE'
+    AND kop_id LIKE '%" . $kop_id . "%'
+
+    UNION ALL
+
+    SELECT 'QRIS' AS item, 'BELUM CLOSING' AS ket, '" . $tgl_awal . "' AS tgl, ifnull(SUM(real_amount), 0) AS amount
+    FROM tr_pos_master
+    WHERE tipe_bayar='000002'
+    AND convert(dateIns, DATE)='" . $tgl_awal . "'
+    AND appYn='UNAPPROVE'
+    AND kop_id LIKE '%" . $kop_id . "%'
+
+    UNION ALL
+
+    SELECT 'Total Penjualan' AS item, 'CLOSING' AS ket, '" . $tgl_awal . "' AS tgl, ifnull(SUM(real_amount), 0) AS amount
+    FROM tr_pos_master
+    WHERE tipe_bayar='000001'
+    AND convert(dateIns, DATE)='" . $tgl_awal . "'
+    AND appYn='APPROVE'
+    AND kop_id LIKE '%" . $kop_id . "%'
+
+    UNION ALL
+
+    SELECT 'CASH' AS item, 'CLOSING' AS ket, '" . $tgl_awal . "' AS tgl, ifnull(SUM(real_amount), 0) AS amount
+    FROM tr_pos_master
+    WHERE tipe_bayar='000001'
+    AND convert(dateIns, DATE)='" . $tgl_awal . "'
+    AND appYn='APPROVE'
+    AND kop_id LIKE '%" . $kop_id . "%'
+
+    UNION ALL
+
+    SELECT 'QRIS' AS item, 'CLOSING' AS ket, '" . $tgl_awal . "' AS tgl, ifnull(SUM(real_amount), 0) AS amount
+    FROM tr_pos_master
+    WHERE tipe_bayar='000002'
+    AND convert(dateIns, DATE)='" . $tgl_awal . "'
+    AND appYn='APPROVE'
+    AND kop_id LIKE '%" . $kop_id . "%'
+";
         $results = DB::select($sql);
         return json_encode($results);
     }
